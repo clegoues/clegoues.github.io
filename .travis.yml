@@ -1,15 +1,4 @@
 language: ruby
-install:
-- gem install bundler
-- bundle install
-branches:
-  only:
-  - update
-script:
-- bundle exec jekyll build
-- ./deploy.sh
-notifications:
-  email: false
-env:
-  matrix:
-    secure:
+sudo: false
+rvm: 2.2.0
+script: bundle exec rake deploy
