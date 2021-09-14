@@ -1,5 +1,5 @@
 ---
-title: Conference Networking, or: Just talk to whomever, with anecdotes
+title: Conference Networking, or, Just talk to whomever, with anecdotes
 date: 2017-05-14
 permalink: /posts/2017/05/post-1
 tags: 
