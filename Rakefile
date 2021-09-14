@@ -1,3 +1,5 @@
 require 'rake-jekyll'
 
-Rake::Jekyll::GitDeployTask.new(:deploy)
+Rake::Jekyll::GitDeployTask.new(:deploy) do |t|
+  t.deploy_branch = 'test'
+end

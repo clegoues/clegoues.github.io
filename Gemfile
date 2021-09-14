@@ -33,4 +33,5 @@ group :jekyll_plugins do
   gem 'jekyll-paginate'
   gem 'jekyll-gist'
   gem 'jekyll-redirect-from'
+  gem 'github-pages'
 end
