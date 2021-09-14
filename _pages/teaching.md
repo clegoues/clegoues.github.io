@@ -2,6 +2,8 @@
 title: "Teaching"
 permalink: /teaching.html
 author_profile: true
+  - /teaching/
+  - /teaching.html
 ---
 
 Fall semesters, I am also an instructor of record for to 17-808, Introduction to

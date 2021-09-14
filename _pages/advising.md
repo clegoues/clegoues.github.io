@@ -2,6 +2,9 @@
 title: "Advising"
 permalink: advising.html
 author_profile: true
+redirect_from:
+  - /advising/
+  - /advising.html
 ---
 
 Check out the main [squaresLab@CMU website](http://squareslab.github.io) for
