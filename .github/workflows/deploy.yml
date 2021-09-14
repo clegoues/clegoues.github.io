@@ -18,8 +18,7 @@ jobs:
         run: |
           gem install bundler
           bundle exec jekyll build
-          chmod 0600 deploy.sh
-          ./deploy.sh
+          sh deploy.sh
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
