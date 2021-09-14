@@ -296,7 +296,7 @@ scholar:
   join_strings:    true
   
   bibtex_skip_fields: [code, data, tool, pdf, slides, poster, abbrv, month, month_numeric, acceptance, pubcls, pubtype]
-  repository: materials
+  repository: papers
 
 # Archives
 #  Type
