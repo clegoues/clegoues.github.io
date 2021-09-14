@@ -1,13 +1,13 @@
 ---
 title: Double-blind review at SSBSE
 date: 2015-09-12
-permalink: /posts/2017/05/post-1
+permalink: /posts/ssbse-anon-review.html
 tags: 
    - academia
    - anonymousreview
 ---
 
-</a>As PC co-chair for the <a href="http://http//ssbse.org/2014/">Symposium for Search-Based Software Engineering in 2014</a>, I participated in the Organizing Committee&#8217;s discussion about and decision to implement double-blind submission review for the main research track. On behalf of the Organizing Committee, I composed a post explaining the reasoning behind the experiment. That post was moved around as it became less relevant to the conference (&#8230;after reviews were concluded). Since more than two people have since asked for a link to it, it seemed reasonable to reproduce it here.</p>
+As PC co-chair for the <a href="http://http//ssbse.org/2014/">Symposium for Search-Based Software Engineering in 2014</a>, I participated in the Organizing Committee&#8217;s discussion about and decision to implement double-blind submission review for the main research track. On behalf of the Organizing Committee, I composed a post explaining the reasoning behind the experiment. That post was moved around as it became less relevant to the conference (&#8230;after reviews were concluded). Since more than two people have since asked for a link to it, it seemed reasonable to reproduce it here.</p>
 <h2>SSBSE with Double Blind</h2>
 <h3>Why is SSBSE 2014 Implementing Double-blind Submission and Review?</h3>
 <p>We thought the members of the SSBSE community might be curious about our reasons for implementing double-blind peer review this year. We prepared this web page to provide a brief explanation of our motivations for the change.</p>

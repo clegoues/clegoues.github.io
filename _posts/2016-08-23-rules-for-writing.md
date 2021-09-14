@@ -1,7 +1,7 @@
 ---
 title: Things I Keep Repeating About Writing
 date: 2016-08-23
-permalink: /posts/2016/08/post-1
+permalink: /posts/clg-writing-rules.html
 tags: 
    - academia
    - latex
