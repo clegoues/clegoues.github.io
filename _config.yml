@@ -7,13 +7,13 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Your Name / Site Title"
+title                    : "Claire Le Goues"
 title_separator          : "-"
 name                     : &name "Your Name"
-description              : &description "personal description"
-url                      : https://academicpages.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+description              : &description "Associate Professor, ISR/SCS/CMU"
+url                      : https://clegoues.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+repository               : "clegoues.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
@@ -81,13 +81,14 @@ analytics:
 # Site Author
 author:
   name             : "Claire Le Goues"
-  avatar           : "profile.png"
-  bio              : "Your biography for the left-hand sidebar"
-  location         : "Location"
-  employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : "http://yourfullgooglescholarurl.com"
-  email            :
+  avatar           : "headshot1-scaled-down1.jpeg"
+  bio              : "Associate Professor of Computer Science"
+  location         : "TCSH 363"
+  employer         : 
+  pubmed           : 
+  dblp             : "https://dblp.org/pid/93/4573.html"
+  googlescholar    : "https://scholar.google.com/citations?user=Cmr9ljkAAAAJ&hl=en"
+  email            : "clegoues@cs.cmu.edu"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -96,20 +97,20 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "academicpages"
+  github           : "squaresLab"
   google_plus      :
   keybase          :
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
   linkedin         :
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            : # "https://orcid.org/0000-0002-3931-060X"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "replacethistwitterhandle"
+  twitter          : "clegoues"
   vine             :
   weibo            :
   xing             :
@@ -266,7 +267,6 @@ plugins:
   - jekyll-feed
   - jekyll-redirect-from
   - jekyll/scholar
-
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate
@@ -275,6 +275,28 @@ whitelist:
   - jekyll-feed
   - jemoji
 
+# scholar
+scholar:
+  style: assets/bib.csl
+  locale: en
+  order: descending
+  sort_by: year, month
+
+  source: ./_bibliography
+  bibliography: references.bib
+  bibliography_template: bib_template
+
+  bibliography_list_tag: 'div'
+  bibliography_item_tag: 'span'
+
+  bibliography_list_attributes:
+    reversed: "reversed"
+
+  replace_strings: true
+  join_strings:    true
+  
+  bibtex_skip_fields: [code, data, tool, pdf, slides, poster, abbrv, month, month_numeric, acceptance, pubcls, pubtype]
+  repository: materials
 
 # Archives
 #  Type
@@ -311,22 +333,3 @@ compress_html:
   clippings: all
   ignore:
     envs: development
-
-scholar: 
-  style: assets/bib.csl
-  source: ./_bibliography
-  bibliography: references.bib
-  bibtex_skip_fields: ['abstract', 'code', 'data', 'month_numeric', 'results',
-  'tool', 'slides']
-  repository: materials
-  sort_by: year, month
-  order: descending
-  bibliography_template: bib_template
-  bibliography_list_tag: 'div'
-  bibliography_item_tag: 'span'
-
-  bibliography_list_attributes:
-    reversed: "reversed"
-
-  replace_strings: true
-  join_strings:    true
