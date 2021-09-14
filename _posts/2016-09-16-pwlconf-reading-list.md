@@ -1,7 +1,7 @@
 ---
 title: My original PWLConf reading list on patch generation
 date: 2016-09-16
-permalink: /posts/2016/09/post-1
+permalink: /posts/2016/09/pwlconf-reading-list
 tags: 
    - programrepair
    - pwlconf

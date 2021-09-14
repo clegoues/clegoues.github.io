@@ -1,7 +1,7 @@
 ---
 title: A reluctant ICSE submission cap post or, an exploration of primary sources
 date: 2016-04-21
-permalink: /posts/2016/04/post-1
+permalink: /posts/2016/04/icse-submission-cap1
 tags: 
    - academia
    - icse

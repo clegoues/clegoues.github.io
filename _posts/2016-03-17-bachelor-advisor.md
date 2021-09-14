@@ -1,7 +1,7 @@
 ---
 title: What The Bachelor Teaches Us About Choosing a PhD Advisor
 date: 2016-03-17
-permalink: /posts/2016/03/post-1
+permalink: /posts/2016/03/bachelor-advisor
 tags: 
    - academia
    - advising

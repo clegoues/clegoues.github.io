@@ -1,7 +1,7 @@
 ---
 title: 'Resources'
 date: 2199-01-01
-permalink: /posts/resources/
+permalink: /posts/resources
 tags:
   - Useful resources
 ---

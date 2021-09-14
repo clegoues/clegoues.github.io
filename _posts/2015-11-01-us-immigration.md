@@ -1,7 +1,7 @@
 ---
 title: CS PhDs and US Immigration Policy, a Long and Pointlessly Insane Saga
 date: 2015-11-01
-permalink: /posts/2015/11/post-1
+permalink: /posts/2015/11/us-immigration-phds
 tags: 
    - academia
    - grantprocrastination

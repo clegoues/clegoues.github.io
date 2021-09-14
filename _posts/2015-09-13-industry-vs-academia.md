@@ -1,7 +1,7 @@
 ---
 title: Industry vs. Academia, or, the Grey Lady Misses the Point
 date: 2015-09-13
-permalink: /posts/2015/09/post-2
+permalink: /posts/2015/09/industry-academia
 tags: 
    - academia
    - rant

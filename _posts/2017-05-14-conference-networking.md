@@ -1,7 +1,7 @@
 ---
 title: Conference Networking, or, Just Talk to Whomever, with Anecdotes
 date: 2017-05-14
-permalink: /posts/2017/05/post-1
+permalink: /posts/2017/05/conference-networking
 tags: 
    - academia
    - students

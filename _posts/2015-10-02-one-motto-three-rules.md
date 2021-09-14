@@ -1,7 +1,7 @@
 ---
 title: One Motto, Three Rules of Thumb
 date: 2015-10-02
-permalink: /posts/2015/10/post-1
+permalink: /posts/2015/10/talk-structure
 tags: 
    - academia
    - talks
