@@ -1,6 +1,6 @@
 ---
 title: "Advising"
-permalink: advising.html
+permalink: /advising.html
 author_profile: true
 redirect_from:
   - /advising/
