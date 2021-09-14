@@ -5,7 +5,8 @@ permalink: /posts/2017/09/post-1
 tags: 
    - programrepair
 ---
-My collaborators and I started GenProg, "[Genetic|Generic] Program Repair (Depending on Whom You Ask)", in 2008, maybe a month or so after GitHub was launched.  My grad school research group was hip and up-to-date in our development tools, primarily evidenced by the fact that we used Subversion instead of CVS.  Even in 2011, when we started putting together what became the <a href="http://repairbenchmarks.cs.umass.edu">ManyBugs dataset</a>, it was still completely reasonable to find open source projects to study by trolling <a href="http://www.sourceforge.net">Sourceforge</a>. Which is exactly what we did.
+
+My collaborators and I started GenProg, "[Genetic|Generic] Program Repair (Depending on Whom You Ask)", in 2008, maybe a month or so after GitHub was launched.  My grad school research group was hip and up-to-date in our development tools, primarily evidenced by the fact that we used Subversion instead of CVS.  Even in 2011, when we started putting together what became the <a href="http://repairbenchmarks.cs.umass.edu">ManyBugs dataset</a>, it was still completely reasonable to find open source projects to study by trolling <a href="http://www.sourceforge.net">Sourceforge</a>. Which is exactly what we did. 
 
 Similarly, at the time, it was basically reasonable to release data, code, and reproduction instructions by calling svn export on the repo and tarballing everything up and linking to it from a website.  Which is also exactly what we did.
 
