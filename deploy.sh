@@ -25,63 +25,7 @@ overridden by environment variables. Any environment variables are overridden
 by values set in a '.env' file (if it exists), and in turn by those set in a
 file specified by the '--config-file' option."
 
-parse_args() {
-	# Set args from a local environment file.
-	if [ -e ".env" ]; then
-		source .env
-	fi
-
-	# Set args from file specified on the command-line.
-	if [[ $1 = "-c" || $1 = "--config-file" ]]; then
-		source "$2"
-		shift 2
-	fi
-
-	# Parse arg flags
-	# If something is exposed as an environment variable, set/overwrite it
-	# here. Otherwise, set/overwrite the internal variable instead.
-	while : ; do
-		if [[ $1 = "-h" || $1 = "--help" ]]; then
-			echo "$help_message"
-			return 0
-		elif [[ $1 = "-v" || $1 = "--verbose" ]]; then
-			verbose=true
-			shift
-		elif [[ $1 = "-e" || $1 = "--allow-empty" ]]; then
-			allow_empty=true
-			shift
-		elif [[ ( $1 = "-m" || $1 = "--message" ) && -n $2 ]]; then
-			commit_message=$2
-			shift 2
-		elif [[ $1 = "-n" || $1 = "--no-hash" ]]; then
-			GIT_DEPLOY_APPEND_HASH=false
-			shift
-		else
-			break
-		fi
-	done
-
-	# Set internal option vars from the environment and arg flags. All internal
-	# vars should be declared here, with sane defaults if applicable.
-
-	# Source directory & target branch.
-	deploy_directory=${GIT_DEPLOY_DIR:-_site}
-	deploy_branch=${GIT_DEPLOY_BRANCH:-master}
-
-	#if no user identity is already set in the current git environment, use this:
-	default_username=${GIT_DEPLOY_USERNAME:-travis}
-	default_email=${GIT_DEPLOY_EMAIL:-}
-
-	#repository to deploy to. must be readable and writable.
-	repo=https://${GH_TOKEN}@github.com/squaresLab/squaresLab.github.io.git
-
-	#append commit hash to the end of message by default
-	append_hash=${GIT_DEPLOY_APPEND_HASH:-true}
-}
-
 main() {
-	parse_args "$@"
-
 	enable_expanded_output
 
 	if ! git diff --exit-code --quiet --cached; then
