@@ -1,5 +1,5 @@
 ---
-title: My original PWLConf reading list on patch generation
+title: "GenProg" GitHub Launch
 date: 2017-09-06
 permalink: /posts/2017/09/post-1
 tags: 
