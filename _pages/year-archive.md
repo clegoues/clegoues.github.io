@@ -9,7 +9,7 @@ redirect_from:
 
 There was a period of time where I blogged, and perhaps I will again.  I keep
 whatever posts I have around for archival purposes, mostly.  At a high-level, some
-resources/posts that are possibly useful for you are:
+resources/posts that are mostly likely useful for you are:
 
 - [The CS Grad Job and Interview Guide](https://csguides.github.io/grad-job-guide/), which has lived and proven
   useful for far longer than I ever expected it to! Includes additions and new
