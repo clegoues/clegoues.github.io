@@ -1,5 +1,5 @@
 ---
-title: "GenProg" GitHub Launch
+title: GenProg GitHub Launch
 date: 2017-09-06
 permalink: /posts/2017/09/genprog-github-launch
 tags: 

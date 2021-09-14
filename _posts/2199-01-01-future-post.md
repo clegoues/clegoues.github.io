@@ -1,5 +1,5 @@
 ---
-title: 'Resources'
+title: Resources
 date: 2199-01-01
 permalink: /posts/resources
 tags:
