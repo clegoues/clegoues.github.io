@@ -25,7 +25,13 @@ Many foreign students I've spoken to are understandably mystified by the total i
 
 Someone somewhere (Trump?) is liable to say something like "Admit more US graduate students!"  Listen, there simply aren't enough of them.  My admittedly limited experience on graduate admissions committees strongly suggests that virtually any CS graduate department would struggle to fill their cohorts with US students, even if they totally ignored applicants' qualifications.
 
-People (including commenters on the NYT article) periodically get up in arms and claim that the visa lobbying done by companies like MS constitutes a nefarious strategy to pay foreign workers a lower salary (which is basically demented, because last I checked they pay more or less the same salary to starting engineers regardless of country of origin), but you really can't say that about us.  We pay all graduate students the same stipend regardless.  We have literally no economic incentive at all to admit a foreign vs. a local grad student.
+People (including commenters on the NYT article) periodically get up in arms and
+claim that the visa lobbying done by companies like MS constitutes a nefarious
+strategy to pay foreign workers a lower salary (which is basically demented,
+because last I checked they pay more or less the same salary to starting
+engineers regardless of country of origin), but you really can't say that about
+us. We pay all graduate students the same stipend regardless. We have literally
+no economic incentive at all to admit a foreign vs. a local grad student.
 
 tl;dr part 2: As a taxpayer, I would like the record to show that I strongly favor government policy that encourages people with PhDs in Computer Science, especially (though not limited to) those that I helped pay for, to stay in this country.
 
