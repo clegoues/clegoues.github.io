@@ -18,7 +18,6 @@ jobs:
         run: |
           gem install bundler
           bundle exec jekyll build
-          bundle exec rake deploy
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.5
