@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Claire Le Goues"
+title                    : "Claire Le;nbspGoues"
 title_separator          : "-"
 name                     : &name "Your Name"
 description              : &description "Associate Professor, ISR/SCS/CMU"
@@ -80,7 +80,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Claire Le Goues"
+  name             : "Claire Le;nbspGoues"
   avatar           : "headshot1-scaled-down1.jpeg"
   bio              : "Associate Professor of Computer Science"
   location         : "TCSH 363"
