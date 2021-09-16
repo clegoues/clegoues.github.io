@@ -1,6 +1,29 @@
 ---
 ---
 
+% pubtype 0: full length conference, journal
+% pubtype 1: short
+% pubtype 2: wacky
+% pubtype 3: these misc educational
+
+@mastersthesis{legoues-masters,
+  author       = {Claire {Le~Goues}}, 
+  title        = {Specification Mining With Few False Positives},
+  school       = {University of Virginia},
+  year         = {2009},
+  month        = {May},
+pubtype={3}
+}
+
+@phdthesis{legoues-dissertation,
+  author       = {Peter Joslin}, 
+  title        = {Automatic Program Repair Using Genetic Programming},
+  school       = {University of Virginia},
+  year         = {2013},
+  month        = {May},
+pubtype={3}
+}
+
 @article{tse20sos,
   author = {Afsoon Afzal and Manish Motwani and Kathryn T. Stolee and Yuriy Brun and Claire {Le~Goues}},
   title = {SOSRepair: Expressive Semantic Search for Real-World Program Repair},
@@ -10,7 +33,7 @@
   year = {2020},
   abbrv = {TSE},
   doi = {10.1109/TSE.2019.2944914},
-
+  pubtype = {0}
 }
 
 @article{motwani20tse,
@@ -20,7 +43,8 @@
   venue = {TSE, accepted},
   issn = {0098-5589},
   year = {2020},
-  abbrv = {TSE}
+  abbrv = {TSE},
+  pubtype = {0}
 }
 
 
@@ -39,6 +63,7 @@
   pages     = {67},
   year      = {2021},
   doi       = {10.1007/s10664-021-09973-5},
+  pubtype = {0}
 }
 
 
@@ -56,7 +81,8 @@
   abbrv     ={ ESEC/FSE},
   year      = {2021},
   doi       = {10.1145/3468264.3468600},
-  month     = {August}
+  month     = {August},
+  pubtype = {0}
 }
 
 @article{kinneer21taas,
@@ -72,6 +98,7 @@
   year      = {2021},
   doi       = {10.1145/3440119},
   abbrv     = {TAAS},
+  pubtype = {0}
 }
 
 
@@ -87,7 +114,8 @@ old_url = {https://doi.ieeecomputersociety.org/10.1109/MSR52588.2021.00026},
 publisher = {IEEE Computer Society},
 month = {May},
 abbrv = {MSR},
-location = {Madrid, Spain}
+location = {Madrid, Spain},
+pubtype = {0}
 }
 
 @article{legoues21ieeesw,
@@ -103,6 +131,7 @@ location = {Madrid, Spain}
   year      = {2021},
   doi       = {10.1109/MS.2021.3072577},
   abbrv     = {IEEE SW},
+  pubtype = {0}
 }
 
 @inproceedings{zizyte21dsn,
@@ -121,7 +150,8 @@ location = {Madrid, Spain}
   year      = {2021},
   month     = {June},
   doi       = {10.1109/DSN-S52858.2021.00028},
-  abbrv     = {DSN Industry}
+  abbrv     = {DSN Industry},
+pubtype = {0}
 }
 
 @article{legoues-cacm2019,
@@ -140,7 +170,8 @@ journal = {Commun. ACM},
 month = nov,
 pages = {56–65},
 numpages = {10},
-abbrv = {CACM}
+abbrv = {CACM},
+pubtype = {0}
 }
   
 
@@ -159,6 +190,7 @@ abbrv = {CACM}
   pages     = {50--57},
   year      = {2018},
   doi       = {10.1109/MS.2018.3571235},
+pubtype = {0}
 }
 
 @article{sw19brass,
@@ -186,6 +218,7 @@ abbrv = {CACM}
   pages     = {83--90},
   year      = {2019},
   doi       = {10.1109/MS.2018.2885058},
+pubtype = {0}
 }
 
 @article{cacm18double,
@@ -198,7 +231,8 @@ volume = {61},
 number = {6},
 pages = {30--33},
 DOI = {10.1145/3208157},
-abbrv = {CACM}
+abbrv = {CACM},
+pubtype = {0}
 }
 
 @article{ese18overfit,
@@ -211,6 +245,7 @@ abbrv = {ESE},
   number    = {5},
   pages     = {3007--3033},
   doi       = {10.1007/s10664-017-9577-2},
+pubtype = {0}
 }
 
 @article{ese18rep,
@@ -222,7 +257,8 @@ journal = {Empirical Software Engineering},
   pages     = {2980--3006},
 year = {2018},
 abbrv = {ESE},
-doi = {10.1007/s10664-017-9562-9}
+doi = {10.1007/s10664-017-9562-9},
+pubtype = {0}
 }
 
 @Article{ese-guest17,
@@ -237,6 +273,7 @@ doi = {10.1007/s10664-017-9562-9}
   year      = {2017},
   old_url       = {https://doi.org/10.1007/s10664-017-9504-6},
   doi       = {10.1007/s10664-017-9504-6},
+pubtype = {2}
 }
 
 @article{tse17comment,
@@ -249,7 +286,7 @@ and Use of the {M}any{B}ugs Benchmark (Comment Paper)},
   pages     = {1089--1090},
   year      = {2017},
   doi       = {10.1109/TSE.2017.2755651},
-abbrv = {TSE (Comment)}
+pubtype = {2}
 }
 
 
@@ -264,6 +301,7 @@ abbrv = {TSE (Comment)}
 	pages={109--116},
     abbrv={CACM},
     doi       = {10.1145/1735223.1735249},
+pubtype = {0}
 }
 %CONFERENCE
 
@@ -285,6 +323,7 @@ abbrv = {TSE (Comment)}
   year      = {2021},
   abbrv     = {ICSE},
   doi       = {10.1109/ICSE43902.2021.00023},
+pubtype = {0}
 }
 
 @inproceedings{afzal21icst,
@@ -300,7 +339,8 @@ abbrv = {TSE (Comment)}
   publisher = {{IEEE}},
   year      = {2021},
   doi       = {10.1109/ICST49551.2021.00036},
-  abbrv     = {ICST}
+  abbrv     = {ICST},
+pubtype = {0}
 }
 
 @inproceedings{coker21framefix,
@@ -317,6 +357,7 @@ abbrv = {TSE (Comment)}
   publisher = {{IEEE}},
   year      = {2021},
   doi       = {10.1109/SANER50967.2021.00027},
+pubtype = {0}
 }
 
 @inproceedings{kinneer20acsos,
@@ -334,6 +375,7 @@ abbrv = {TSE (Comment)}
   abbrv     = {ACSOS},
   year      = {2020},
   doi       = {10.1109/ACSOS49614.2020.00045},
+pubtype = {0}
 }
 
 @inproceedings{kolak20icsme,
@@ -351,7 +393,8 @@ location = {Adelaide, Australia},
   publisher = {{IEEE}},
   year      = {2020},
   doi       = {10.1109/ICSME46990.2020.00048},
-  abbrv = {ICSME}
+  abbrv = {ICSME},
+pubtype = {0}
 }
 
 @inproceedings{durieux20msr,
@@ -365,6 +408,7 @@ month = {June},
   year      = {2020},
   doi       = {10.1145/3379597.3387460},
   abbrv   = {MSR},
+pubtype = {0}
 }
 
 
@@ -381,6 +425,7 @@ year = {2020},
   year      = {2020},
   month     = {May},
   doi       = {10.1109/ICRA40945.2020.9197060},
+pubtype = {0}
 }
 
 @inproceedings{icse2020transform,
@@ -392,7 +437,8 @@ booktitle = {Proceedings of the 42nd IEEE/ACM International Conference on Softwa
   month     = {May},
   doi       = {10.1145/3377811.3380343},
   timestamp = {Fri, 08 Jan 2021 14:47:26 +0100},
-  abbrv = {ICSE}
+  abbrv = {ICSE},
+pubtype = {0}
 }
 
 
@@ -405,7 +451,8 @@ booktitle = {2020 IEEE International Conference on Software Testing, Verificatio
   year      = {2020},
   doi       = {10.1109/ICST46399.2020.00020},
   abbrv   = {ICST},
-  month = {October}
+  month = {October},
+pubtype = {0}
 }
 
 
@@ -421,7 +468,9 @@ month = {September},
 abbrv = {ICSME},
 pages={568--579},
 doi={10.1109/ICSME.2019.00091},
-ISSN={1063-6773}}
+ISSN={1063-6773},
+pubtype = {0}
+}
 
 @inproceedings{memocode19cody,
 author = {Kinneer, Cody and Wagner, Ryan and Fang, Fei and {Le~Goues}, Claire and Garlan, David},
@@ -433,7 +482,8 @@ address = {New York, NY, USA},
 doi = {10.1145/3359986.3361208},
 booktitle = {Proceedings of the 17th ACM-IEEE International Conference on Formal Methods and Models for System Design (MEMOCODE)},
 numpages = {11},
-abbrv = {MEMOCODE}
+abbrv = {MEMOCODE},
+pubtype = {0}
 }
   
 
@@ -448,6 +498,7 @@ pages={628-639},
 doi={10.1109/ASE.2019.00064},
 abbrv = {ASE},
 ISSN={1938--4300},
+pubtype = {0}
 }
 
 @inproceedings{pldi19,
@@ -464,6 +515,7 @@ ISSN={1938--4300},
  address = {New York, NY, USA},
 abbrv = {PLDI},
  keywords = {parsers, rewriting, syntax, transformation},
+pubtype = {0}
 }
 
 
@@ -479,6 +531,7 @@ abbrv={GECCO},
 location = {Kyoto, Japan},
 month = {July},
 pages = {1443--1450},
+pubtype = {0}
 }
 
 @inproceedings{sefm18,
@@ -492,6 +545,7 @@ publisher = {Springer},
 doi = {10.1007/978-3-319-92970-5_10},
 series    = {Lecture Notes in Computer Science},
 volume    = {10886},
+pubtype = {0}
 }
 
 @inproceedings{icse18rijnard,
@@ -504,7 +558,8 @@ month = {May},
 abbrv = {ICSE},
 year = {2018},
 publisher = {ACM},
-location = {Gothenburg, Sweden}
+location = {Gothenburg, Sweden},
+pubtype = {0}
 }
 
 @inproceedings{icse18seip,
@@ -517,8 +572,8 @@ month = {May},
 location = {Gothenburg, Sweden},
 pages     = {276--285},
 doi       = {10.1145/3183519.3183534},
-publisher = {ACM}
-
+publisher = {ACM},
+pubtype = {0}
 }
 
 @inproceedings{icpc18jaffe,
@@ -531,8 +586,8 @@ year = {2018},
   doi       = {10.1145/3196321.3196330},
   pages     = {20--30},
 location = {Gothenburg, Sweden},
-publisher = {ACM}
-
+publisher = {ACM},
+pubtype = {0}
 }
 
 @inproceedings{seams18cody,
@@ -546,8 +601,8 @@ month = {May},
 year = {2018},
 abbrv = {SEAMS},
 location = {Gothenburg, Sweden},
-publisher = {ACM}
-
+publisher = {ACM},
+pubtype = {0}
 }
 
 @inproceedings{icst18crashing,
@@ -559,7 +614,8 @@ location = {V{\"{a}}ster{\aa}s, Sweden},
 doi={10.1109/ICST.2018.00040}, 
 year = {2018},
 month = {April},
-abbrv = {ICST}
+abbrv = {ICST},
+pubtype = {0}
 }
 
 @inproceedings{saner18mau,
@@ -571,7 +627,8 @@ year={2018},
 location = {Campobasso, Italy},
 pages ={221--231},
 abbrv = {SANER},
-doi = {10.1109/SANER.2018.8330211}
+doi = {10.1109/SANER.2018.8330211},
+pubtype = {0}
 }
 
 
@@ -588,6 +645,7 @@ abbrv = {SSBSE},
 series    = {Lecture Notes in Computer Science},
 volume    = {10452},
 publisher = {Springer},
+pubtype = {0}
 }
 
 @inproceedings{icsme17,
@@ -601,7 +659,7 @@ month = {September},
 year = {2017},
 location = {Shanghai, China},
   publisher = {{IEEE} Computer Society},
-
+pubtype = {0}
 }
 
 @inproceedings{esecfse17s3,
@@ -616,7 +674,8 @@ publisher = {{ACM}},
 pages = {593--604},
 year = {2017},
 month = {September},
-abbrv = {ESEC/FSE}
+abbrv = {ESEC/FSE},
+pubtype = {0}
 }
 
 @inproceedings{snapl17,
@@ -629,7 +688,8 @@ month = {May},
 year = {2017},
 location = {Asilomar, CA, USA},
 publisher = {Schloss Dagstuhl - Leibniz-Zentrum fuer Informatik},
-abbrv = {SNAPL}
+abbrv = {SNAPL},
+pubtype = {0}
 }
 
 
@@ -645,7 +705,8 @@ abbrv = {SNAPL}
  pages = {177--188},
  numpages = {12},
  doi = {10.1145/2931037.2931049},
- abbrv = {ISSTA}
+ abbrv = {ISSTA},
+pubtype = {0}
 } 
 
 @inproceedings{tian-icpc16, 
@@ -658,7 +719,8 @@ location = {Austin, TX, USA},
 publisher = {{IEEE} Computer Society},
 pages={1--10}, 
 doi={10.1109/ICPC.2016.7503715}, 
-abbrv = {ICPC}
+abbrv = {ICPC},
+pubtype = {0}
 }
 
 @inproceedings{ssbse16,
@@ -675,7 +737,8 @@ abbrv = {ICPC}
   location = {Raleigh, NC, USA},
   series    = {Lecture Notes in Computer Science},
   volume    = {9962},
-  abbrv     = {SSBSE}
+  abbrv     = {SSBSE},
+pubtype = {0}
 }
 
 @INPROCEEDINGS{bach-saner16, 
@@ -689,7 +752,8 @@ doi={10.1109/SANER.2016.76},
 location = {Osaka, Japan},
 month={March},
   publisher = {{IEEE} Computer Society},
-abbrv = {SANER}
+abbrv = {SANER},
+pubtype = {0}
 }
 
 @inproceedings{coker15acsac,
@@ -706,7 +770,8 @@ abbrv = {SANER}
   publisher = {ACM},
   month = {December},
   year      = {2015},
-  abbrv  = {ACSAC}
+  abbrv  = {ACSAC},
+pubtype = {0}
 }
 
 @inproceedings{smith15fse,
@@ -722,7 +787,8 @@ abbrv = {SANER}
   location = {Bergamo, Italy},
   publisher = {ACM},
   doi = {10.1145/2786805.2786825},
-  abbrv = {ESEC/FSE}
+  abbrv = {ESEC/FSE},
+pubtype = {0}
 }
 
 @inproceedings{ke15ase,
@@ -737,7 +803,8 @@ abbrv = {SANER}
   doi = {10.1109/ASE.2015.60},  
   pages = {295--306},
   publisher = {{IEEE} Computer Society},
-  abbrv = {ASE}
+  abbrv = {ASE},
+pubtype = {0}
 }
 
 @inproceedings{legoues12gecco,
@@ -752,6 +819,7 @@ abbrv={GECCO},
 pages={959-966},
 location = {Philadelphia, PA, USA},
   doi       = {10.1145/2330163.2330296},
+pubtype = {0}
 }
 
 @inproceedings{legoues12icse,
@@ -764,7 +832,8 @@ year={2012},
 location = {Zurich, Switzerland},
 pages={3--13},
 publisher = {{IEEE} Computer Society},
-abbrv = {ICSE}
+abbrv = {ICSE},
+pubtype = {0}
 }
 
 @InProceedings{fast10gecco,
@@ -778,6 +847,7 @@ abbrv = {ICSE}
     abbrv={GECCO},
     publisher = {{ACM}},
 	pages={965-972},
+pubtype = {0}
 }
 
 @InProceedings{forrest09gecco,
@@ -804,6 +874,7 @@ abbrv = {ICSE}
     abbrv = {ICSE},
 	pages="364--374",
 	author={Westley Weimer and ThanhVu Nguyen and Claire {Le~Goues} and Stephanie Forrest},
+pubtype = {0}
 }
 
 @InProceedings{legoues09tacas,
@@ -821,6 +892,7 @@ abbrv = {ICSE}
   volume    = {5505},
     abbrv = {TACAS},
   publisher = {Springer},
+pubtype = {0}
 }
 
 % SHORT
@@ -836,7 +908,8 @@ year = {2020},
   url       = {https://doi.org/10.1109/DSN-S50200.2020.00013},
   doi       = {10.1109/DSN-S50200.2020.00013},
 location = {Valencia, Spain},
-month = {June}
+month = {June},
+pubtype = {1}
 }
 
 @INPROCEEDINGS{msr19rvt,
@@ -851,6 +924,7 @@ location = {Montreal, Canada},
 publisher = {{IEEE}/{ACM}},
 abbrv = {MSR Data},
  url       = {https://doi.org/10.1109/MSR.2019.00037},
+pubtype = {1}
 }
 
 @inproceedings{poster18bugzoo,
@@ -863,7 +937,8 @@ publisher = {ACM},
 month = {May},
 abbrv = {ICSE Poster},
 year = {2018},
-location = {Gothenburg, Sweden}
+location = {Gothenburg, Sweden},
+pubtype = {1}
 }
 
 @inproceedings{msr18mau,
@@ -875,7 +950,8 @@ pages = {102--105},
 year = {2018},
   doi       = {10.1145/3196398.3196472},
 location = {Gothenburg, Sweden},
-abbrv = {MSR Challenge}
+abbrv = {MSR Challenge},
+pubtype = {1}
 }
 
 
@@ -890,7 +966,8 @@ year = {2018},
   year      = {2018},
   doi       = {10.1145/3196398.3196468},
 
-location = {Gothenburg, Sweden}
+location = {Gothenburg, Sweden},
+pubtype = {1}
 }
 
 
@@ -906,6 +983,7 @@ abbrv = {MSR Challenge},
  doi       = {10.1109/MSR.2017.34},
  pages = {483--486},
   publisher = {{IEEE} Computer Society},
+pubtype = {1}
 } 
 
 @inproceedings{issta-tools17,
@@ -918,7 +996,8 @@ title = {JFix: {S}emantics-based repair of {J}ava programs via Symbolic Path{F}i
 month = {July},
 year = {2017},
 publisher = {ACM},
-abbrv = {ISSTA Tools}
+abbrv = {ISSTA Tools},
+pubtype = {1}
 }
 
 @inproceedings{dsnw16,
@@ -936,7 +1015,8 @@ abbrv = {ISSTA Tools}
   location = {Toulouse, France},
   publisher = {{IEEE} Computer Society},
   DOI       = {10.1109/DSN-W.2016.64},
-  abbrv = {DSN Industry}
+  abbrv = {DSN Industry},
+pubtype = {1}
 }
 
 @inproceedings{bach-era16b,
@@ -949,7 +1029,8 @@ month = {October},
 year = {2016},
 location = {Raleigh, NC, USA},
  publisher = {{IEEE} Computer Society},
-abbrv = {ICSME ERA}
+abbrv = {ICSME ERA},
+pubtype = {1}
 }
 
 @inproceedings{bach-era16a,
@@ -962,7 +1043,8 @@ month = {October},
 year = {2016},
 location = {Raleigh, NC, USA},
  publisher = {{IEEE} Computer Society},
-abbrv = {ICSME ERA}
+abbrv = {ICSME ERA},
+pubtype = {1}
 }
 
 @INPROCEEDINGS{vantonder-icpc16, 
@@ -975,7 +1057,8 @@ location = {Austin, TX, USA},
 pages={1--4}, 
 publisher = {{IEEE} Computer Society},
 doi={10.1109/ICPC.2016.7503736}, 
-abbrv = {ICPC Short}
+abbrv = {ICPC Short},
+pubtype = {1}
 }
 
 @inproceedings{kery16msr,
@@ -991,7 +1074,8 @@ abbrv = {ICPC Short}
  acmid = {2903497},
  location = {Austin, TX, USA},
  publisher = {{ACM}},
- abbrv = {MSR Challenge}
+ abbrv = {MSR Challenge},
+pubtype = {1}
 } 
 
 @inproceedings{soto2016,
@@ -1005,7 +1089,8 @@ abbrv = {ICPC Short}
  doi = {10.1145/2901739.2903495},
  location = {Austin, TX, USA},
   publisher = {{ACM}},
- abbrv = {MSR Challenge}
+ abbrv = {MSR Challenge},
+pubtype = {1}
 } 
 
 @inproceedings{coker15seams,
@@ -1021,7 +1106,8 @@ abbrv = {ICPC Short}
   doi       = {10.1109/SEAMS.2015.16},
   location = {Florence, Italy},
   publisher = {{IEEE} Computer Society},
-  abbrv = {SEAMS Position}
+  abbrv = {SEAMS Position},
+pubtype = {1}
 }
 
 @INPROCEEDINGS{gi19,
@@ -1036,7 +1122,9 @@ pages={2-9},
 keywords={Maintenance engineering;Semantics;Sociology;Statistics;Genetic programming;Computer bugs;genetic programming;automated program repair;program semantics;invariant analysis;fitness function},
 doi={10.1109/GI.2019.00011},
 ISSN={},
-month={May},}
+month={May},
+pubtype = {0}
+}
 
 @INPROCEEDINGS{botse19,
 author={Rijnard {van Tonder} and Claire {Le~Goues}},
@@ -1050,7 +1138,9 @@ pages={43-47},
 keywords={Syntactics;Maintenance engineering;Computer bugs;Tools;Semantics;Software;Automation;software bots;program transformation;automation;software quality;refactoring;automatic program repair},
 doi={10.1109/BotSE.2019.00019},
 ISSN={},
-month={May},}
+month={May},
+pubtype = {1}
+}
 
 @inproceedings{legoues10foser,
   author    = {Claire {Le~Goues} and
@@ -1066,7 +1156,8 @@ month={May},}
   location = {Santa Fe, NM, USA},
   publisher = {{ACM}},
   doi       = {10.1145/1882362.1882406},
-  abbrv = {FoSER}
+  abbrv = {FoSER},
+pubtype = {1}
 }
 
 @inproceedings{nguyen09icst,
@@ -1083,6 +1174,7 @@ month={May},}
   month = {April},
   year      = {2009},
   doi       = {10.1109/ICSTW.2009.35},
+pubtype = {1}
 }
 
 % DISORGANIZED
@@ -1097,7 +1189,8 @@ publisher = {ACM},
 doi       = {10.1145/3180155.3182536},
 year = {2018},
 month = {May},
-location = {Gothenburg, Sweden}
+location = {Gothenburg, Sweden},
+pubtype = {2}
 }
 
 @inproceedings{gi18,
@@ -1110,7 +1203,8 @@ abbrv = {GI Position},
 year = {2018},
   doi       = {10.1145/3194810.3194817},
 publisher = {ACM},
-location = {Gothenburg, Sweden}
+location = {Gothenburg, Sweden},
+pubtype = {1}
 }
 
 
@@ -1127,7 +1221,7 @@ location = {Gothenburg, Sweden}
   publisher =	{Schloss Dagstuhl--Leibniz-Zentrum fuer Informatik},
   address =	{Dagstuhl, Germany},
   doi =		{10.4230/DagRep.8.1.158},
-  abbrv = {Dagstuhl}
+pubtype = {2}
 }
 @Article{dagstuhl17,
   author =	{Sunghun Kim and Claire {Le~Goues} and Michael Pradel and Abhik Roychoudhury},
@@ -1138,12 +1232,12 @@ location = {Gothenburg, Sweden}
   year =	{2017},
   volume =	{7},
   number =	{1},
-  abbrv = {Dagstuhl},
   editor =	{Sunghun Kim and Claire {Le~Goues} and Michael Pradel and Abhik Roychoudhury},
   publisher =	{Schloss Dagstuhl--Leibniz-Zentrum fuer Informatik},
   address =	{Dagstuhl, Germany},
   doi =		{10.4230/DagRep.7.1.19},
-  annote =	{Keywords: Program repair, program analysis, software engineering}
+  annote =	{Keywords: Program repair, program analysis, software engineering},
+pubtype = {2}
 }
 
 @inproceedings{gecco12tutorial,
@@ -1156,7 +1250,8 @@ location = {Gothenburg, Sweden}
   doi       = {10.1145/2330784.2330943},
   publisher = {{ACM}},
   month = {July},
- location = {Philadelpha, PA, USA}
+ location = {Philadelpha, PA, USA},
+pubtype = {2}
 }
 
 
@@ -1175,7 +1270,8 @@ location = {Gothenburg, Sweden}
   volume    = {7041},
   publisher = {Springer},
   doi       = {10.1007/978-3-642-24690-6_28},
-  abbrv     = {SEFM Tools}
+  abbrv     = {SEFM Tools},
+pubtype = {1}
 }
 
 
@@ -1193,7 +1289,8 @@ location = {Gothenburg, Sweden}
   isbn      = {978-1-4503-8128-4},
   timestamp = {Fri, 12 Feb 2021 15:16:32 +0100},
   biburl    = {https://dblp.org/rec/conf/kbse/2020w.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
+  bibsource = {dblp computer science bibliography, https://dblp.org},
+pubtype = {2}
 }
 
 @proceedings{ssbse14,
@@ -1209,7 +1306,8 @@ location = {Gothenburg, Sweden}
   isbn      = {978-3-319-09939-2},
   timestamp = {Mon, 21 Jul 2014 13:11:30 +0200},
   biburl    = {http://dblp.uni-trier.de/rec/bib/conf/ssbse/2014},
-  bibsource = {dblp computer science bibliography, http://dblp.org}
+  bibsource = {dblp computer science bibliography, http://dblp.org},
+pubtype = {2}
 }
 
 @incollection{mtd13,
@@ -1228,6 +1326,7 @@ location = {Gothenburg, Sweden}
   year      = {2013},
   publisher = {Springer},
   doi       = {10.1007/978-1-4614-5416-8_7},
+pubtype = {2}
 }
 
 @article{sqjo13,
@@ -1241,7 +1340,8 @@ location = {Gothenburg, Sweden}
   pages     = {421--443},
   year      = {2013},
   doi       = {10.1007/s11219-013-9208-0},
-  abbrv     = {SQJO}
+  abbrv     = {SQJO},
+pubtype = {0}
 }
 
 @article{genprog12tse,
@@ -1256,7 +1356,8 @@ location = {Gothenburg, Sweden}
   pages     = {54--72},
   year      = {2012},
   doi       = {10.1109/TSE.2011.104},
-  abbrv     = {TSE}
+  abbrv     = {TSE},
+pubtype = {0}
 }
 
 @article{specmining12tse,
@@ -1269,7 +1370,8 @@ location = {Gothenburg, Sweden}
   pages     = {175--190},
   year      = {2012},
   doi       = {10.1109/TSE.2011.5},
-  abbrv     = {TSE}
+  abbrv     = {TSE},
+pubtype = {0}
 }
 
 @article{legoues15tse,
@@ -1288,7 +1390,8 @@ location = {Gothenburg, Sweden}
   pages     = {1236--1256},
   year      = {2015},
   doi       = {10.1109/TSE.2015.2454513},
-  abbrv     = {TSE}
+  abbrv     = {TSE},
+pubtype = {0}
 }
 
 
@@ -1309,5 +1412,6 @@ location = {Gothenburg, Sweden}
   timestamp = {Wed, 21 Nov 2018 12:44:20 +0100},
   biburl    = {https://dblp.org/rec/bib/conf/kbse/TonderKG18},
   bibsource = {dblp computer science bibliography, https://dblp.org},
-  abbrv = {ASE}
+  abbrv = {ASE},
+pubtype = {0}
 }
