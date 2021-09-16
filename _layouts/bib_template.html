@@ -9,7 +9,9 @@ table, th, td {
 <div class="refs-row">
 <table style="width:100%" cellpadding="0" border="0">
   <tr>
+    {% if entry.abbrv %}
     <td width="120" valign="top"><span class="abbrv">{{entry.abbrv}}</span></td>
+    {% endif %}
     <td><div class="reference">
 <!-- {{ reference }} -->
 <!-- <abbr>[{{key}}]</abbr>{{reference}} -->
