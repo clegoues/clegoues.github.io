@@ -28,12 +28,14 @@ table, th, td {
 </div>
   <span class="refs-link"><a href="{{links.pdf}}">PDF</a></span>
   &middot; <span class="refs-link"><a href="javascript:void(0)" onclick="$('#bibtex-entry-{{key}}').slideToggle();">BibTeX</a></span>
-  {% if entry.doi %} &middot; <span class="refs-link"><a href="{{entry.doi}}">DOI</a></span> {% endif %}
   {% if links['slides.pdf'] %} &middot; <span class="refs-link"><a href="{{links['slides.pdf']}}">Slides</a></span> {% endif %}
   {% if entry.poster %} &middot; <span class="refs-link"><a href="{{entry.poster}}">Poster</a></span> {% endif %}
-  {% if entry.data %} &middot; <span class="refs-link"><a href="{{entry.data}}">Data</a></span> {% endif %}
-  {% if entry.tool %} &middot; <span class="refs-link"><a href="{{entry.tool}}">Tool</a></span> {% endif %}
-<!--   {% if entry.acceptance %} &middot; <span class="refs-acceptance">Acceptance rate: {{entry.acceptance}}</span> {% endif %} -->
+  {% if entry.github %} &middot; <span class="refs-link"><a href="{{entry.github}}">GitHub</a></span> {% endif %}
+  {% if entry.data %} &middot; <span class="refs-link"><a href="{{entry.results}}">Results/Data</a></span> {% endif %}
+  {% if entry.website %} &middot; <span class="refs-link"><a href="{{entry.website}}">Website</a></span> {% endif %}
+  {% if entry.video %} &middot; <span class="refs-link"><a href="{{entry.video}}">Video</a></span> {% endif %}
+  {% if entry.blog %} &middot; <span class="refs-link"><a href="{{entry.blog}}">Blog</a></span> {% endif %}
+  {% if entry.doi %} &middot; <span class="refs-link"><a href="{{entry.doi}}">DOI</a></span> {% endif %}
   <div class="bibtex noshow" style="width:600px;overflow:auto">
   	<pre class="bibtex-entry" id="bibtex-entry-{{key}}" style="display: none;">{{ entry.bibtex }}</pre>
   </div></td>
