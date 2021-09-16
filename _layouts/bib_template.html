@@ -1,8 +1,14 @@
 ---
 ---
+<style>
+table, th, td {
+  border: 0px;
+  border-collapse: collapse;
+}
+</style>
 <div class="refs-row">
-<table style="width:100%">
-  <p><tr>
+<table style="width:100%" cellpadding="0" border="0">
+  <tr>
     <td width="120" valign="top"><span class="abbrv">{{entry.abbrv}}</span></td>
     <td><div class="reference">
 <!-- {{ reference }} -->
@@ -31,7 +37,7 @@
   <div class="bibtex noshow" style="width:600px;overflow:auto">
   	<pre class="bibtex-entry" id="bibtex-entry-{{key}}" style="display: none;">{{ entry.bibtex }}</pre>
   </div></td>
-  </tr></p>
+  </tr>
 </table>
 
 </div>
