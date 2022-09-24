@@ -33,7 +33,7 @@ even if you're not in SCS or a PhD student.
 *Non-CMU students:* You may apply to several of the PhD programs at CMU’s School
 of Computer Science at once; apply to those that match your interest area and
 background. If you are interested in working with me, apply to
-the [ISR SE PhD program](http://isri.cmu.edu/education/se-phd/application.html).
+the [S3D SE PhD program](https://se-phd.isri.cmu.edu/).
 Mention (and substantiate/justify!) your interest in my work to ensure that I
 see your application. Note that the SE PhD program does not look at GRE scores
 and does not have an application fee.
