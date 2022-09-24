@@ -10,8 +10,9 @@ redirect_from:
 
 I am an Associate Professor in the [School of Computer
 Science](http://www.cs.cmu.edu/) at [Carnegie Mellon
-University](http://www.cmu.edu/), primarily affiliated with the [Institute for
-Software Research](http://www.isri.cmu.edu/). My research interests span software engineering and
+University](http://www.cmu.edu/), primarily affiliated with the [Software and
+Societal Systems Department](https://s3d.cs.cmu.edu) (formerly known as the Institute for
+Software Research). My research interests span software engineering and
 programming languages, and especially in how to construct, maintain, evolve,
 improve/debug, and assure high-quality software systems. My group of brilliant
 students and collaborators is called [squaresLab](http://squareslab.github.io/). I [teach](/teaching.html) software engineering
@@ -23,7 +24,7 @@ Students or potential students interested in working with me can learn more [her
 
 **Relevant trivia:** My last name is pronounced “Le-Gwess.”
 
-**Talks:**
+**Selected Talks:**
 
 - Slides for our talk at the ICSE 2019 MIP plenary "It Does What You Say, Not What
 You Mean: Lessons from 10 Years of Program Repair" are available at
