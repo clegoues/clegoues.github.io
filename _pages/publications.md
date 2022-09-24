@@ -9,7 +9,7 @@ Full-length Conference and Journal Articles
 -----------------------------------
 {% bibliography --query @*[pubtype=0] %}
 
-Short publications
+Short or Workshop Publications
 -----------------------------------
 {% bibliography --query @*[pubtype=1] %}
 
