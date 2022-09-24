@@ -37,7 +37,7 @@ table, th, td {
   {% if entry.website %} &middot; <span class="refs-link"><a href="{{entry.website}}">Website</a></span> {% endif %}
   {% if entry.video %} &middot; <span class="refs-link"><a href="{{entry.video}}">Video</a></span> {% endif %}
   {% if entry.blog %} &middot; <span class="refs-link"><a href="{{entry.blog}}">Blog</a></span> {% endif %}
-  {% if entry.doi %} &middot; <span class="refs-link"><a href="{{entry.doi}}">DOI</a></span> {% endif %}
+  {% if entry.doi %} &middot; <span class="refs-link"><a href="https://https://doi.org/{{entry.doi}}">DOI</a></span> {% endif %}
   <div class="bibtex noshow" style="width:600px;overflow:auto">
   	<pre class="bibtex-entry" id="bibtex-entry-{{key}}" style="display: none;">{{ entry.bibtex }}</pre>
   </div></td>
