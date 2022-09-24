@@ -10,11 +10,13 @@ Engineering (I coordinated, 2015-2017).
 
 **Current:**
 
-- *Not teaching Fall 2021*
+- Fall 2022. 17-214/514: Principles of Software Construction](https://cmu-17-214.github.io/f2022/)
 
 **Previous:**
 
-- Fall 2020: 17-313, Foundations of Software Engineering (with Michael Hilton)
+- Spring 2022. [17-214/514: Principles of Software Construction](https://cmu-17-214.github.io/s2022/)
+- *Spring-Fall 2021. Family leave/Teaching release*
+- Fall 2020. 17-313, Foundations of Software Engineering (with Michael Hilton)
 - Spring 2020. [17-355/17-655/17-819: Program Analysis](https://cmu-program-analysis.github.io/)
 - Fall 2019. [17-313, Foundations of Software Engineering](https://cmu-313.github.io/) (with [Michael Hilton](http://www.cs.cmu.edu/~mhilton/))
 - Spring 2018. 17-355/17-665/17-819O, Program Analysis/Special Topics in PL: Program Analysis (with [Jonathan Aldrich](https://www.cs.cmu.edu/~aldrich/)), and [17-356/17-766: Software Engineering for Startups](https://cmu-17-356.github.io/) (with [Michael Hilton](http://www.cs.cmu.edu/~mhilton/)). [[github](https://github.com/CMU-17-356/)]
