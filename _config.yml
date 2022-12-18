@@ -112,13 +112,13 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "clegoues"
+  twitter          : 
   vine             :
   weibo            :
   xing             :
   youtube          :
   wikipedia        :
-
+  mastodon         : "@clegoues@lebrady.net"
 
 # Reading Files
 include:
