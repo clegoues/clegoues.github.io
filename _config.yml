@@ -57,7 +57,9 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : "clegoues"
+  username               : 
+mastodon:
+  username               : @clegoues@lebrady.net
 facebook:
   username               :
   app_id                 :
