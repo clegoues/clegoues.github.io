@@ -59,7 +59,8 @@ yandex_site_verification :
 twitter:
   username               : 
 mastodon:
-  username               : "@clegoues@lebrady.net"
+  username               : "clegoues"
+  instance               : "lebrady.net"
 facebook:
   username               :
   app_id                 :
@@ -118,7 +119,7 @@ author:
   xing             :
   youtube          :
   wikipedia        :
-  mastodon         : "@clegoues@lebrady.net"
+  mastodon         : "https://lebrady.net/@clegoues"
 
 # Reading Files
 include:
