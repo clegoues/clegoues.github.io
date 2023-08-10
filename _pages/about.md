@@ -20,7 +20,7 @@ and program analysis at the undergraduate, masters, and PhD levels and co-direct
 the [REUSE@CMU](http://reuse.cs.cmu.edu/) summer program.
 Students or potential students interested in working with me can learn more [here.](/advising.html)
 
-**Meeting with me:** Your best bet in setting up a meeting is to email me while CCing Jennifer Cooper (cooperj@andrew.cmu.edu).  If you want to propose some times (always helpful!), [my calendar is available](/calendar.html).
+**NOTE FOR FALL 2023:** I AM ON S(t)A(y)BBATICAL, working on a project.  While I'm technically in Pittsburgh, I'm trying very hard to keep my schedule clearand am declining most service and meetings.  That said, if you really want to meet, your best bet continues to be to email me while CCing Jennifer Cooper (cooperj@andrew.cmu.edu).  If you want to propose some times (always helpful!), [my calendar is available](/calendar.html).
 
 **Relevant trivia:** My last name is pronounced “Le-Gwess.”
 
