@@ -10,10 +10,10 @@ Engineering (I coordinated, 2015-2017).
 
 **Current:**
 
-- Fall 2022. 17-214/514: Principles of Software Construction](https://cmu-17-214.github.io/f2022/)
+Spring 2023. Sabbatical!
 
 **Previous:**
-
+- Fall 2022 and Spring 2023. 17-214/514: Principles of Software Construction](https://cmu-17-214.github.io/f2022/)
 - Spring 2022. [17-214/514: Principles of Software Construction](https://cmu-17-214.github.io/s2022/)
 - *Spring-Fall 2021. Family leave/Teaching release*
 - Fall 2020. 17-313, Foundations of Software Engineering (with Michael Hilton)
