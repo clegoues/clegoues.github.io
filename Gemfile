@@ -16,9 +16,11 @@ gem "github-pages", group: :jekyll_plugins
 
 gem "jekyll"
 
-gem "wdm", "~> 0.1.0" if Gem.win_gem?
+gem "jekyll"
 
-platform "kramdown-parser-gfm"
+gem "wdm", "~> 0.1.0" if Gem.win_platform?
+
+gem "kramdown-parser-gfm"
 
 gem 'rake'
 gem 'rake-jekyll'
@@ -33,5 +35,5 @@ group :jekyll_plugins do
   gem 'jekyll-paginate'
   gem 'jekyll-gist'
   gem 'jekyll-redirect-from'
-#  gem "github-pages"
+  gem "github-pages"
 end
