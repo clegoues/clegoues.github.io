@@ -24,7 +24,7 @@ gem 'rake-jekyll'
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   # gem "jekyll-archives"
-  gem 'jekyll', '3.7.3'
+  gem 'jekyll'
   gem 'jekyll-feed'
   gem 'jekyll-sitemap'
   gem 'hawkins'
@@ -32,5 +32,5 @@ group :jekyll_plugins do
   gem 'jekyll-paginate'
   gem 'jekyll-gist'
   gem 'jekyll-redirect-from'
-  gem "github-pages"
+  gem 'jekyll-github-metadata'
 end
