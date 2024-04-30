@@ -2,6 +2,7 @@
 title: "Advising"
 permalink: /advising.html
 author_profile: true
+classes: wide
 ---
 
 Check out the main [squaresLab@CMU website](http://squareslab.github.io) for
