@@ -3,6 +3,7 @@ layout: archive
 permalink: /year-archive.html
 title: "Posts and Resources"
 author_profile: true
+classes: wide
 ---
 
 <p>At a high-level, 

@@ -2,6 +2,7 @@
 title: "Talks and Misc Links"
 permalink: /talks.html
 author_profile: true
+classes: wide
 ---
 
 I am notably bad at keeping this page up to date. If there's a talk for which you'd really like to see slides for whatever reason and it's not here, feel free to email.
