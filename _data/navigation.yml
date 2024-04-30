@@ -9,14 +9,8 @@ main:
   - title: "Talks and Misc Links"
     url: /talks.html
 
-#  - title: "Talks"
-#    url: /talks/    
-    
   - title: "Posts/Resources"
     url: /year-archive.html
     
   - title: "CV"
-    url: /files/cv/legoues-cv.pdf
-    
-#  - title: "Guide"
-#    url: /markdown/
+    url: /assets/files/cv/legoues-cv.pdf

@@ -54,12 +54,13 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
+  - jekyll-remote-theme
   - jekyll-scholar
 
 author:
   name   : "Claire Le&nbspGoues"
-  avatar : "headshot1-scaled-down1.jpeg"
-  bio    : "Associate Professor of Computer Science, Associate Professor, S3D/SCS/CMU<br/>Associate Department Head for Faculty"
+  avatar : "/assets/images/headshot1-scaled-down1.jpeg"
+  bio    : "Associate Professor of Computer Science, S3D/SCS/CMU<br/>Associate Department Head for Faculty"
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
@@ -99,6 +100,12 @@ defaults:
     values:
       layout: single
       author_profile: true
+
+scholar:
+ csl: /assets/bib.csl
+ bibliography_template: bib_template
+ bibtex_skip_fields: [code, data, tool, pdf, slides, poster, abbrv, month, month_numeric, acceptance, pubcls, pubtype] 
+ repository: /assets/papers
 
 category_archive:
   type: liquid

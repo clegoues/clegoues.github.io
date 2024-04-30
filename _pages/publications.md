@@ -1,8 +1,25 @@
 ---
 layout: archive
-title: "Publications"
+title: ""
 permalink: /publications/
 author_profile: true
+classes: wide
 ---
+<style>ol.bibliography li { list-style: none }</style>
 
-Full-length Conference and Journal Articles
+Full-Length Conference and Journal Articles
+
+-----------------------------------
+{% bibliography --query @*[pubtype=0] %}
+
+Short or Workshop Publications
+-----------------------------------
+{% bibliography --query @*[pubtype=1] %}
+
+Other
+-----------------------------------
+{% bibliography --query @*[pubtype=2] %}
+
+Theses
+-----------------------------------
+{% bibliography --query @*[pubtype=3] %}

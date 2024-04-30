@@ -1,3 +1,6 @@
 _site/
+.DS_Store
+Gemfile.lock
+todo.txt
 .deploy_key
 

@@ -56,7 +56,7 @@ program. We're interested in students from all walks of life: from rising
 freshmen to rising seniors and from regional state schools to small liberal
 schools to R1. Head over to the main site to learn more and apply!
 
-![REUSE 2016 cohort in front of The Fence](/images/reu-se_2016-00804.jpeg?w=450" sizes="(max-width: 450px) 100vw, 450px)
+![REUSE 2016 cohort in front of The Fence](/assets/images/reu-se_2016-00804.jpeg?w=450" sizes="(max-width: 450px) 100vw, 450px)
 
 **Undergraduate advising otherwise:** CMU undergrads: I encourage you to check out the
 [Undergraduate Minor/Concentration in Software
