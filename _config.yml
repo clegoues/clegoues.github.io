@@ -106,6 +106,9 @@ scholar:
  bibliography_template: bib_template
  bibtex_skip_fields: [code, data, tool, pdf, slides, poster, abbrv, month, month_numeric, acceptance, pubcls, pubtype] 
  repository: /assets/papers
+ sort_by: year
+ gropu_by: year
+ order: descending,ascending
 
 category_archive:
   type: liquid
