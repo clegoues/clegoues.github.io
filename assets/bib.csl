@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only">
   <info>
-    <title>IEEE</title>
+    <title>Modified IEEE</title>
     <id>http://www.zotero.org/styles/ieee</id>
     <link href="http://www.zotero.org/styles/ieee" rel="self"/>
     <link href="http://www.ieee.org/documents/style_manual.pdf" rel="documentation"/>
@@ -80,7 +80,7 @@
   </macro>
   <macro name="author">
     <names variable="author">
-      <name and="text" et-al-min="10" et-al-use-first="1" initialize-with=". "/>
+      <name and="text"/>
       <label form="short" prefix=", " text-case="capitalize-first"/>
       <et-al font-style="italic"/>
       <substitute>
@@ -246,22 +246,12 @@
             <text macro="note"/>
           </group>
         </if>
-        <if type="chapter">
-          <group delimiter=", ">
-            <text macro="title"/>
-            <text macro="author"/>
-            <text variable="container-title" font-style="italic" form="short"/>
-            <text macro="locators"/>
-            <text macro="page"/>
-            <text macro="issued"/>
-            <text macro="note"/>
-          </group>
-        </if>
         <else-if type="paper-conference speech" match="any">
           <group delimiter=", ">
             <text macro="title"/>
             <text macro="author"/>
             <text macro="event"/>
+            <text variable="collection-title" font-style="italic"/>
             <text macro="issued"/>
             <text macro="note"/>
             <text macro="locators"/>
@@ -308,7 +298,7 @@
           </group>
         </else-if>
         <!-- Generic/Fallback Formats -->
-        <else-if type="bill graphic legal_case legislation motion_picture report song" match="any">
+        <else-if type="bill book graphic legal_case legislation motion_picture report song" match="any">
           <group delimiter=", " suffix=". ">
             <text macro="title"/>
             <text macro="author" suffix=", "/>

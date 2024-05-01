@@ -29,19 +29,76 @@ table, th, td {
 {{ reference }}
 </div>
   <span class="refs-link"><a href="{{links.pdf}}">PDF</a></span>
-  &middot; <span class="refs-link"><a href="javascript:void(0)" onclick="$('#bibtex-entry-{{key}}').slideToggle();">BibTeX</a></span>
-  {% if links['slides.pdf'] %} &middot; <span class="refs-link"><a href="{{links['slides.pdf']}}">Slides</a></span> {% endif %}
-  {% if entry.poster %} &middot; <span class="refs-link"><a href="{{entry.poster}}">Poster</a></span> {% endif %}
-  {% if entry.github %} &middot; <span class="refs-link"><a href="{{entry.github}}">GitHub</a></span> {% endif %}
-  {% if entry.data %} &middot; <span class="refs-link"><a href="{{entry.results}}">Results/Data</a></span> {% endif %}
-  {% if entry.website %} &middot; <span class="refs-link"><a href="{{entry.website}}">Website</a></span> {% endif %}
-  {% if entry.video %} &middot; <span class="refs-link"><a href="{{entry.video}}">Video</a></span> {% endif %}
-  {% if entry.blog %} &middot; <span class="refs-link"><a href="{{entry.blog}}">Blog</a></span> {% endif %}
-  {% if entry.doi %} &middot; <span class="refs-link"><a href="https://doi.org/{{entry.doi}}">DOI</a></span> {% endif %}
-  <div class="bibtex noshow" style="width:600px;overflow:auto">
-  	<pre class="bibtex-entry" id="bibtex-entry-{{key}}" style="display: none;">{{ entry.bibtex }}</pre>
-  </div></td>
-  </tr>
+  &middot;
+        {% assign first = true %}
+        {% if links.pdf %}
+        {% if first %}{% assign first = false %}{% endif %}<span class="refs-link">
+          <a href="{{links.pdf}}"><i class="far fa-file-alt"></i> PDF</a>
+        </span>
+        {% endif %}
+        {% if links['slides.pdf'] %}
+        {% if first %}{% assign first = false %}{% else %}&middot; {% endif %}<span class="refs-link">
+          <a href="{{links['slides.pdf']}}"><i class="fas fa-chart-pie"></i>
+          Slides (PDF)</a>
+        </span>
+        {% endif %}
+        {% if links['slides.pptx'] %}
+        {% if first %}{% assign first = false %}{% else %}&middot; {% endif %}<span class="refs-link">
+          <a href="{{links['slides.pptx']}}"><i class="fas fa-chart-pie"></i>
+          Slides (PowerPoint)</a>
+        </span>
+        {% endif %}
+        {% if links['slides.key'] %}
+        {% if first %}{% assign first = false %}{% else %}&middot; {% endif %}<span class="refs-link">
+          <a href="{{links['slides.key']}}"><i class="fas fa-chart-pie"></i>
+          Slides (Keynote)</a>
+        </span>
+        {% endif %}
+        {% if links['slides.odp'] %}
+        {% if first %}{% assign first = false %}{% else %}&middot; {% endif %}<span class="refs-link">
+          <a href="{{links['slides.odp']}}"><i class="fas fa-chart-pie"></i>
+          Slides (OpenOffice)</a>
+        </span>
+        {% endif %}
+        {% if links['poster.pdf'] %}
+        {% if first %}{% assign first = false %}{% else %}&middot; {% endif %}<span class="refs-link">
+          <a href="{{links['poster.pdf']}}"><i class="far fa-list-alt"></i> Poster</a>
+        </span>
+        {% endif %}
+        {% if entry.code %}
+        {% if first %}{% assign first = false %}{% else %}&middot; {% endif %}<span class="refs-link">
+          <a href="{{entry.code}}"><i class="far fa-file-code"></i> Code</a>
+        </span>
+        {% endif %}
+        {% if entry.tool %}
+        {% if first %}{% assign first = false %}{% else %}&middot; {% endif %}<span class="refs-link">
+          <a href="{{entry.tool}}"><i class="fas fa-wrench"></i> Tool</a>
+        </span>
+        {% endif %}
+        {% if entry.data %}
+        {% if first %}{% assign first = false %}{% else %}&middot; {% endif %}<span class="refs-link">
+          <a href="{{entry.data}}"><i class="fas fa-database"></i> Data</a>
+        </span>
+        {% endif %}
+        {% if entry.results %}
+        {% if first %}{% assign first = false %}{% else %}&middot; {% endif %}<span class="refs-link">
+          <a href="{{entry.results}}"><i class="fas fa-chart-line"></i> Results</a>
+        </span>
+        {% endif %}
+        {% if entry.doi %}
+        {% if first %}{% assign first = false %}{% else %}&middot; {% endif %}<span class="refs-link">
+          <a href="http://dx.doi.org/{{entry.doi}}"><i class="fas fa-link"></i> DOI</a>
+        </span>
+        {% endif %}
+        {% if first %}{% assign first = false %}{% else %}&middot; {% endif %}<span class="refs-link">
+          <a href="javascript:void(0)" onclick="$('#bibtex-entry-{{key}}').slideToggle();">BibTeX</a>
+        </span>
+        <div class="bibtex noshow" style="width:600px;overflow:auto">
+  	      <pre class="bibtex-entry" id="bibtex-entry-{{key}}" style="display:
+                                                                     none;">{{ entry.bibtex }}</pre>
+        </div>
+      </td>
+    </tr>
 </table>
 
 </div>

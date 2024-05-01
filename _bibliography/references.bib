@@ -6,6 +6,80 @@
 % pubtype 2: wacky
 % pubtype 3: these misc educational
 
+@article{10.1145/3658668,
+  author = {Ramos, Daniel and Lynce, In\^{e}s and Manquinho, Vasco and Martins, Ruben and {Le~Goues}, Claire},
+  title = {BatFix: Repairing language model-based transpilation},
+  year = {2024},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  issn = {1049-331X},
+  url = {https://doi.org/10.1145/3658668},
+  doi = {10.1145/3658668},
+  journal = {ACM Transactions on Software Engineering and Methodology},
+  month = {April},
+  abbrv = {TOSEM},
+  pubtype = {0} 
+}
+
+
+
+@article{dramkotaxonomy,
+  title={A Taxonomy of C Decompiler Fidelity Issues},
+  author={Dramko, Luke and Lacomis, Jeremy and Schwartz, Edward J and Vasilescu, Bogdan and {Le~Goues}, Claire},
+  booktitle={33rd USENIX Security Symposium},
+  series={USENIX Security 24},
+  year={2024},
+  pubtype = {0},
+  abbrv = {USENEX Sec.}
+}
+
+
+@inproceedings{jainContextualPMT,
+author = {Jain, Kush and Alon, Uri and Groce, Alex and {Le~Goues}, Claire},
+title = {Contextual Predictive Mutation Testing},
+year = {2023},
+isbn = {9798400703270},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+doi = {10.1145/3611643.3616289},
+abstract = {Mutation testing is a powerful technique for assessing and improving test suite quality that artificially introduces bugs and checks whether the test suites catch them. However, it is also computationally expensive and thus does not scale to large systems and projects. One promising recent approach to tackling this scalability problem uses machine learning to predict whether the tests will detect the synthetic bugs, without actually running those tests. However, existing predictive mutation testing approaches still misclassify 33\% of detection outcomes on a randomly sampled set of mutant-test suite pairs. We introduce MutationBERT, an approach for predictive mutation testing that simultaneously encodes the source method mutation and test method, capturing key context in the input representation. Thanks to its higher precision, MutationBERT saves 33\% of the time spent by a prior approach on checking/verifying live mutants. MutationBERT, also outperforms the state-of-the-art in both same project and cross project settings, with meaningful improvements in precision, recall, and F1 score. We validate our input representation, and aggregation approaches for lifting predictions from the test matrix level to the test suite level, finding similar improvements in performance. MutationBERT not only enhances the state-of-the-art in predictive mutation testing, but also presents practical benefits for real-world applications, both in saving developer time and finding hard to detect mutants that prior approaches do not.},
+booktitle = {Proceedings of the 31st ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering},
+pages = {250–261},
+numpages = {12},
+keywords = {test oracles, mutation analysis, code coverage},
+location = {<conf-loc>, <city>San Francisco</city>, <state>CA</state>, <country>USA</country>, </conf-loc>},
+series = {ESEC/FSE 2023},
+abbrv = {FSE},
+data = {https://zenodo.org/records/7600371},
+pubtype = {0}
+}
+
+@inproceedings{leach2022issre,
+  author       = {Kevin Leach and
+                  Christopher Steven Timperley and
+                  Kevin Angstadt and
+                  Anh Nguyen{-}Tuong and
+                  Jason Hiser and
+                  Aaron Paulos and
+                  Partha P. Pal and
+                  Patrick Hurley and
+                  Carl Thomas and
+                  Jack W. Davidson and
+                  Stephanie Forrest and
+                  Claire {Le~Goues} and
+                  Westley Weimer},
+  title        = {{START:} {A} Framework for Trusted and Resilient Autonomous Vehicles
+                  (Practical Experience Report)},
+  booktitle    = {{IEEE} 33rd International Symposium on Software Reliability Engineering,
+                  {ISSRE} 2022, Charlotte, NC, USA, October 31 - Nov. 3, 2022},
+  pages        = {73--84},
+  publisher    = {{IEEE}},
+  year         = {2022},
+  doi          = {10.1109/ISSRE55969.2022.00018},
+  abbrv = {ISSRE}, 
+  pubtype = {0}
+}
+
 @inproceedings{yang2024large,
   title={Large language models for test-free fault localization},
   author={Yang, Aidan ZH and Le Goues, Claire and Martins, Ruben and Hellendoorn, Vincent},
@@ -14,8 +88,68 @@
   year={2024},
   doi={10.1145/3597503.3623342},
   abbrv = {ICSE},
+  pubtype = {0},
+  code = {https://github.com/squaresLab/LLMAO}
+}
+
+@INPROCEEDINGS {raoCATLM,
+author = {Nikitha Rao and Kush Jain and Uri Alon and Claire {Le~Goues} and Vincent J. Hellendoorn},
+booktitle = {2023 38th IEEE/ACM International Conference on Automated Software Engineering (ASE)},
+title = {CAT-LM Training Language Models on Aligned Code And Tests},
+year = {2023},
+volume = {},
+issn = {},
+pages = {409-420},
+abstract = {Testing is an integral but often neglected part of the software development process. Classical test generation tools such as EvoSuite generate behavioral test suites by optimizing for coverage, but tend to produce tests that are hard to understand. Language models trained on code can generate code that is highly similar to that written by humans, but current models are trained to generate each file separately, as is standard practice in natural language processing, and thus fail to consider the code-under-test context when producing a test file. In this work, we propose the Aligned Code And Tests Language Model (CAT-LM), a GPT-style language model with 2.7 Billion parameters, trained on a corpus of Python and Java projects. We utilize a novel pretraining signal that explicitly considers the mapping between code and test files when available. We also drastically increase the maximum sequence length of inputs to 8,192 tokens, 4x more than typical code generation models, to ensure that the code context is available to the model when generating test code. We analyze its usefulness for realistic applications, showing that sampling with filtering (e.g., by compilability, coverage) allows it to efficiently produce tests that achieve coverage similar to ones written by developers while resembling their writing style. By utilizing the code context, CAT-LM generates more valid tests than even much larger language models trained with more data (CodeGen 16B and StarCoder) and substantially outperforms a recent test-specific model (TeCo) at test completion. Overall, our work highlights the importance of incorporating software-specific insights when training language models for code and paves the way to more powerful automated test generation.},
+keywords = {training;codes;runtime;data models;software;test pattern generators;standards},
+doi = {10.1109/ASE56229.2023.00193},
+publisher = {IEEE Computer Society},
+address = {Los Alamitos, CA, USA},
+month = {sep},
+pubtype = {0},
+abbrv = {ASE},
+code = {https://github.com/RaoNikitha/CAT-LM},
+}
+
+@INPROCEEDINGS {Ye2023PreciseBugCollector,
+author = {Ye, He and Chen, Zimin and  {Le~Goues}, Claire},
+booktitle = {2023 38th IEEE/ACM International Conference on Automated Software Engineering (ASE)},
+title = {PreciseBugCollector: Extensible, Executable and Precise Bug-Fix Collection: Solution for Challenge 8: Automating Precise Data Collection for Code Snippets with Bugs, Fixes, Locations, and Types},
+year = {2023},
+pages = {1899-1910},
+abstract = {Bug datasets are vital for enabling deep learning techniques to address software maintenance tasks related to bugs. However, existing bug datasets suffer from precise and scale limitations: they are either small-scale but precise with manual validation or large-scale but imprecise with simple commit message processing. In this paper, we introduce Precise-BugCollector, a precise, multi -language bug collection approach that overcomes these two limitations. PreciseBugCollector is based on two novel components: a) A bug tracker to map the codebase repositories with external bug repositories to trace bug type information, and b) A bug injector to generate project-specific bugs by injecting noise into the correct codebases and then executing them against their test suites to obtain test failure messages. We implement PreciseBugCollector against three sources: 1) A bug tracker that links to the national vulnerability data set (NVD) to collect general-wise vulnerabilities, 2) A bug tracker that links to OSS-Fuzz to collect general-wise bugs, and 3) A bug injector based on 16 injection rules to generate project-wise bugs. To date, PreciseBugCollector comprises 1057818 bugs extracted from 2968 open-source projects. Of these, 12602 bugs are sourced from bug repositories (NVD and OSS-Fuzz), while the remaining 1045216 project-specific bugs are generated by the bug injector. Considering the challenge objectives, we argue that a bug injection approach is highly valuable for the industrial setting, since project-specific bugs align with domain knowledge, share the same codebase, and adhere to the coding style employed in industrial projects.},
+keywords = {industries;deep learning;training;location awareness;software maintenance;computer bugs;manuals},
+doi = {10.1109/ASE56229.2023.00163},
+publisher = {IEEE Computer Society},
+address = {Los Alamitos, CA, USA},
+month = {sep},
+code = {https://github.com/SophieHYe/PreciseBugs},
+pubtype = {1}
+}
+
+@inproceedings{RamosMLMMG23,
+  author       = {Daniel Ramos and
+                  Hailie Mitchell and
+                  In{\^{e}}s Lynce and
+                  Vasco M. Manquinho and
+                  Ruben Martins and
+                  Claire {Le~Goues}},
+  title        = {{MELT:} Mining Effective Lightweight Transformations from Pull Requests},
+  booktitle    = {{IEEE/ACM} International Conference on Automated Software Engineering},
+  pages        = {1516--1528},
+  publisher    = {{IEEE}},
+  year         = {2023},
+  url          = {https://doi.org/10.1109/ASE56229.2023.00117},
+  doi          = {10.1109/ASE56229.2023.00117},
+  series       = {ASE '23},
+  code = {https://github.com/squaresLab/MELT/},
+  data = {https://doi.org/10.5281/zenodo.8226234},
+  abbrv = {ASE},
   pubtype = {0}
 }
+
+
+
 
 @INPROCEEDINGS {jainOracleGap,
 author = {Kush Jain and Goutamkumar Tulajappa Kalburgi and Claire {Le~Goues} and Alex Groce},
@@ -57,7 +191,7 @@ pubtype = {0}
   numpages = {13},
   series = {ICSE '24},
   project = {robots},
-  github = {https://github.com/rosqual/rosdiscover},
+  code = {https://github.com/rosqual/rosdiscover},
   pubtype =  {0}
 }
 
@@ -152,7 +286,7 @@ abbrv = {TOSEM}
   year = {2022},
   abbrv = {TSE},
   pubtype = {0},
-  github = {https://github.com/LASER-UMASS/JavaRepair-replication-package/}
+  code = {https://github.com/LASER-UMASS/JavaRepair-replication-package/}
 }
 
 
@@ -442,7 +576,7 @@ abbrv = {USENIX Sec.}
   doi       = {10.1145/3510003.3510162},
   abbrv = {ICSE},
   pubtype = {0},
-  github = {https://github.com/squaresLab/VarCLR}
+  code = {https://github.com/squaresLab/VarCLR}
 }
 
 @inproceedings{timp22icsa,
@@ -460,7 +594,7 @@ abbrv = {USENIX Sec.}
   doi       = {10.1109/ICSA53651.2022.00019},
   abbrv = {ICSA},
   pubtype={0},
-  github={https://github.com/rosqual/rosdiscover}
+  code={https://github.com/rosqual/rosdiscover}
 }
 
 @inproceedings{groce22cc,
@@ -645,7 +779,7 @@ pages={568--579},
 doi={10.1109/ICSME.2019.00091},
 ISSN={1063-6773},
 pubtype = {0},
-github = {https://github.com/cbogart/ViolationOfDirectives}
+code = {https://github.com/cbogart/ViolationOfDirectives}
 }
 
 @inproceedings{memocode19cody,
@@ -676,7 +810,7 @@ abbrv = {ASE},
 ISSN={1938--4300},
 pubtype = {0},
 results = {https://zenodo.org/record/3403078},
-github = {https://github.com/CMUSTRUDEL/DIRE}
+code = {https://github.com/CMUSTRUDEL/DIRE}
 }
 
 @inproceedings{pldi19,
@@ -726,7 +860,7 @@ doi = {10.1007/978-3-319-92970-5_10},
 series    = {Lecture Notes in Computer Science},
 volume    = {10886},
 pubtype = {0},
-github = {https://github.com/squaresLab/SynthLift}
+code = {https://github.com/squaresLab/SynthLift}
 }
 
 @inproceedings{icse18rijnard,
@@ -741,7 +875,7 @@ year = {2018},
 publisher = {ACM},
 location = {Gothenburg, Sweden},
 pubtype = {0},
-github = {https://github.com/squaresLab/footpatch},
+code = {https://github.com/squaresLab/footpatch},
 results = {https://github.com/squaresLab/footpatch-patches}
 }
 
@@ -786,7 +920,7 @@ abbrv = {SEAMS},
 location = {Gothenburg, Sweden},
 publisher = {ACM},
 pubtype = {0},
-github = {https://github.com/ZackC/AdaptiveSystemsGeneticProgrammingPlanner}
+code = {https://github.com/ZackC/AdaptiveSystemsGeneticProgrammingPlanner}
 }
 
 @inproceedings{icst18crashing,
@@ -800,7 +934,7 @@ year = {2018},
 month = {April},
 abbrv = {ICST},
 pubtype = {0},
-github = {https://github.com/squaresLab/ArduBugs}
+code = {https://github.com/squaresLab/ArduBugs}
 }
 
 @inproceedings{saner18mau,
@@ -814,7 +948,7 @@ pages ={221--231},
 abbrv = {SANER},
 doi = {10.1109/SANER.2018.8330211},
 pubtype = {0},
-github = {https://github.com/squaresLab/ProbabilisticModelSaner2018}
+code = {https://github.com/squaresLab/ProbabilisticModelSaner2018}
 }
 
 
@@ -832,7 +966,7 @@ series    = {Lecture Notes in Computer Science},
 volume    = {10452},
 publisher = {Springer},
 pubtype = {0},
-github = {https://bitbucket.org/ChrisTimperley/ssbse-2017-data}
+data = {https://bitbucket.org/ChrisTimperley/ssbse-2017-data}
 }
 
 @inproceedings{icsme17,
@@ -942,7 +1076,7 @@ month={March},
   publisher = {{IEEE} Computer Society},
 abbrv = {SANER},
 pubtype = {0},
-github = {https://github.com/xuanbachle/bugfixes},
+code = {https://github.com/xuanbachle/bugfixes},
 blog={https://www.felienne.com/archives/4786},
 }
 
@@ -994,7 +1128,7 @@ pubtype = {0}
   pages = {295--306},
   publisher = {{IEEE} Computer Society},
   abbrv = {ASE},
-github = {https://github.com/ProgramRepair/SearchRepair},
+code = {https://github.com/ProgramRepair/SearchRepair},
 pubtype = {0}
 }
 
@@ -1147,7 +1281,7 @@ abbrv = {ICSE Poster},
 year = {2018},
 location = {Gothenburg, Sweden},
 pubtype = {1},
-github = {https://github.com/squareslab/bugzoo}
+code = {https://github.com/squareslab/bugzoo}
 }
 
 @inproceedings{msr18mau,
@@ -1161,7 +1295,7 @@ year = {2018},
 location = {Gothenburg, Sweden},
 abbrv = {MSR Challenge},
 pubtype = {1},
-github = {https://github.com/squaresLab/ChallengeMau_MSRChallenge2018}
+code = {https://github.com/squaresLab/ChallengeMau_MSRChallenge2018}
 }
 
 
@@ -1194,7 +1328,7 @@ abbrv = {MSR Challenge},
  pages = {483--486},
   publisher = {{IEEE} Computer Society},
 pubtype = {1},
-github = {https://github.com/squaresLab/MSR-challenge-2017}
+code = {https://github.com/squaresLab/MSR-challenge-2017}
 } 
 
 @inproceedings{issta-tools17,
@@ -1303,7 +1437,7 @@ pubtype = {1}
  location = {Austin, TX, USA},
   publisher = {{ACM}},
  abbrv = {MSR Challenge},
- github = {https://github.com/chupanw/BoaChallenge},
+code = {https://github.com/chupanw/BoaChallenge},
 pubtype = {1}
 } 
 
@@ -1637,5 +1771,5 @@ pubtype = {0}
   bibsource = {dblp computer science bibliography, https://dblp.org},
   abbrv = {ASE},
   pubtype = {0},
-  github = {https://github.com/squaresLab/SemanticCrashBucketing}
+  code = {https://github.com/squaresLab/SemanticCrashBucketing}
 }
