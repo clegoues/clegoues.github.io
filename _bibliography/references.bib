@@ -6,6 +6,59 @@
 % pubtype 2: wacky
 % pubtype 3: these misc educational
 
+@inproceedings{yang2024large,
+  title={Large language models for test-free fault localization},
+  author={Yang, Aidan ZH and Le Goues, Claire and Martins, Ruben and Hellendoorn, Vincent},
+  booktitle={Proceedings of the 46th IEEE/ACM International Conference on Software Engineering},
+  pages={1--12},
+  year={2024},
+  doi={10.1145/3597503.3623342},
+  pubtype = {0}
+}
+
+@INPROCEEDINGS {jainOracleGap,
+author = {Kush Jain and Goutamkumar Tulajappa Kalburgi and Claire {Le~Goues} and Alex Groce},
+booktitle = {2023 IEEE 34th International Symposium on Software Reliability Engineering (ISSRE)},
+title = {Mind the Gap: The Difference Between Coverage and Mutation Score Can Guide Testing Efforts},
+year = {2023},
+volume = {},
+issn = {},
+pages = {102-113},
+abstract = {An &quot;adequate&quot; test suite should effectively find all inconsistencies between a system&#x27;s requirements/specifications and its implementation. Practitioners frequently use code coverage to approximate adequacy, while academics argue that mutation score may better approximate true (oracular) adequacy coverage. High code coverage is increasingly attainable even on large systems via automatic test generation, including fuzzing. In light of all of these options for measuring and improving testing effort, how should a QA engineer spend their time? We propose a new framework for reasoning about the extent, limits, and nature of a given testing effort based on an idea we call the oracle gap, or the difference between source code coverage and mutation score for a given software element. We conduct (1) a large-scale observational study of the oracle gap across popular Maven projects, (2) a study that varies testing and oracle quality across several of those projects and (3) a small-scale observational study of highly critical, well-tested code across comparable blockchain projects. We show that the oracle gap surfaces important information about the extent and quality of a test effort beyond either adequacy metric alone. In particular, it provides a way for practitioners to identify source files where it is likely a weak oracle tests important code.},
+keywords = {codes;source coding;fuzzing;time measurement;software;cognition;software reliability},
+doi = {10.1109/ISSRE59848.2023.00036},
+url = {https://doi.ieeecomputersociety.org/10.1109/ISSRE59848.2023.00036},
+publisher = {IEEE Computer Society},
+address = {Los Alamitos, CA, USA},
+month = {oct},
+pubtype = {0}
+}
+
+@article{debSyntaxAllYouNeed,
+  title = {Syntax Is All You Need: A Universal-Language Approach to Mutant Generation},
+  author = {Deb, Sourav and Jain, Kush and {van~Tonder}, Rijnard and {Le~Goues}, Claire and Groce, Alex},
+  booktitle = {Proceedings of the 32nd ACM International Conference on the Foundations of Software Engineering (FSE)},
+  series = {FSE 24},
+  year = {2024},
+  pubtype = {0}
+}
+
+@inproceedings{Duerschmid2024ROSInfer,
+  author = {D\"{u}rschmid, Tobias and Timperley, Christopher Steven and Garlan, David and {Le~Goues}, Claire},
+  title = {ROSInfer: Statically Inferring Behavioral Component Models for ROS-based Robotics Systems},
+  year = {2024},
+  url = {https://doi.org/10.1145/3597503.3639206},
+  doi = {10.1145/3597503.3639206},
+  booktitle = {Proceedings of the IEEE/ACM 46th International Conference on Software Engineering},
+  articleno = {144},
+  numpages = {13},
+  series = {ICSE '24},
+  project = {robots},
+  github = {https://github.com/rosqual/rosdiscover},
+  pubtype =  {0}
+}
+
+
 @mastersthesis{legoues-masters,
   author       = {Claire {Le~Goues}}, 
   title        = {Specification Mining With Few False Positives},
@@ -38,16 +91,32 @@ abbrv = {TOSEM}
 @article{cruz22crayons,
 author = {Cruz-Carlon, Juan Alfredo and Varshosaz, Mahsa and {Le~Goues}, Claire and W\k{a}sowski, Andrzej},
 title = {Patching Locking Bugs Statically with Crayons},
-year = {2022},
-publisher = {Association for Computing Machinery},
-issn = {1049-331X},
-doi = {10.1145/3548684},
-note = {Just Accepted},
-journal = {ACM Trans. Softw. Eng. Methodol.},
-month = {jun},
+  journal      = {{ACM} Trans. Softw. Eng. Methodol.},
+  volume       = {32},
+  number       = {3},
+  pages        = {56:1--56:28},
+  year         = {2023},
+  url          = {https://doi.org/10.1145/3548684},
+  doi          = {10.1145/3548684},
 pubtype = {0},
 abbrv = {TOSEM}
 }
+
+@article{AfzalGT22,
+  author       = {Afsoon Afzal and
+                  Claire Le Goues and
+                  Christopher Steven Timperley},
+  title        = {Mithra: Anomaly Detection as an Oracle for Cyberphysical Systems},
+  journal      = {{IEEE} Trans. Software Eng.},
+  volume       = {48},
+  number       = {11},
+  pages        = {4535--4552},
+  year         = {2022},
+  doi          = {10.1109/TSE.2021.3120680},
+  data = {https://figshare.com/articles/dataset/Replication_package/14619177},
+  pubtype = {0}
+}
+
 
 @article{tse20sos,
   author = {Afsoon Afzal and Manish Motwani and Kathryn T. Stolee and Yuriy Brun and Claire {Le~Goues}},
@@ -79,7 +148,7 @@ abbrv = {TOSEM}
   year = {2022},
   abbrv = {TSE},
   pubtype = {0},
-  github = {http://github.com/LASER-UMASS/JavaRepairreplication-package/}
+  github = {https://github.com/LASER-UMASS/JavaRepair-replication-package/}
 }
 
 
