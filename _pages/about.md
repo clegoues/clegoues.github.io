@@ -1,11 +1,12 @@
 ---
-title: ""
-excerpt: "About me"
+permalink: /
+title: "Claire Le Goues"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
+
 
 I am an Associate Professor in the [School of Computer
 Science](http://www.cs.cmu.edu/) at [Carnegie Mellon
