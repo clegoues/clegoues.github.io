@@ -12,7 +12,7 @@ title                    : "Claire Le&nbsp;Goues"
 title_separator          : "-"
 name                     : &name "Your Name"
 description              :  &description "Associate Professor, S3D/SCS/CMU" 
-url                      : https://www.clegoues.com  # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://www.clairelegoues.com  # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "clegoues/clegoues.github.io"
 
