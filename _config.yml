@@ -8,9 +8,9 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Claire Le&nbsp;Goues"
+title                    : ""
 title_separator          : "-"
-name                     : &name "Your Name"
+name                     : &name "Claire Le Goues"
 description              :  &description "Associate Professor, S3D/SCS/CMU" 
 url                      : https://www.clairelegoues.com  # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
