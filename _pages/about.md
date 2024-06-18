@@ -8,7 +8,7 @@ redirect_from:
 ---
 
 
-I am an Associate Professor in the [School of Computer
+I am a Professor in the [School of Computer
 Science](http://www.cs.cmu.edu/) at [Carnegie Mellon
 University](http://www.cmu.edu/), primarily affiliated with the [Software and
 Societal Systems Department](https://s3d.cs.cmu.edu) (formerly known as the Institute for
