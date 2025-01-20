@@ -21,7 +21,7 @@ repository               : "clegoues/clegoues.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "/headshot1-scaled-down1.jpeg"
+  avatar           : "/headshot-2025.jpeg"
   name             : "Claire Le Goues"
   pronouns         : # example: "she/her"  
   bio              : "Professor of Computer Science, S3D/SCS/CMU<br/>Associate Department Head for Faculty"
