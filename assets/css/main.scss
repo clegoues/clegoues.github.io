@@ -39,3 +39,27 @@
 @import "vendor/font-awesome/brands";
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
+
+/* Custom CSS for mobile responsiveness */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Specific fix for author avatar/headshot */
+.author__avatar img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure sidebar content is responsive */
+.sidebar {
+  @include breakpoint($large) {
+    width: calc(200px - 1em);
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
