@@ -75,9 +75,17 @@ Edit the `author:` block in `_config.yml`. Adding a key like `linkedin: "claire-
 
 ### A new publication
 
-Two options:
-1. **Bibliography entry** (preferred): add to `_bibliography/papers.bib`. `jekyll-scholar` renders it on `/publications/` automatically. The bib-template at `_layouts/bib_template.html` handles `pdf`, `slides.pdf`, `code`, `doi`, etc. links.
-2. **Standalone page**: a Markdown file in `_publications/` with appropriate frontmatter.
+Most of the publications page is auto-synced from the lab repo at `squaresLab/squareslab.github.io`. Three workflows depending on the paper:
+
+1. **Lab-coauthored paper (most common)**: Don't touch this repo. Add the entry to the **lab** repo's `_bibliography/publications.bib` and drop the PDF in `public/materials/<bibkey>.pdf`. A weekly GitHub Action here (`.github/workflows/sync-publications.yml`) detects the change, downloads the PDF, fills in the personal-site fields (`pubtype`/`abbrv` from `_data/venue_rules.yml`), and opens a PR. Merge the PR to publish.
+
+2. **Personal-only paper** (pre-CMU, solo, anything not lab-relevant): Edit `_bibliography/references.bib` directly. Add the entry **below** the `% END AUTO-SYNCED REGION` marker; the sync will leave it alone. Drop the PDF in `assets/papers/<bibkey>.pdf`.
+
+3. **Override a synced entry's field** (e.g., wrong venue abbreviation): add the bibkey + the field(s) to `_data/personal_overrides.yml`. Or move the entry below the END marker for full hand control.
+
+To **exclude** a synced entry: add its bibkey to `_data/personal_skip.yml` under `skip:`.
+
+Manual sync trigger: from the Actions tab on GitHub, run "Sync publications from lab repo" via the workflow_dispatch button. Or locally: `pip install pyyaml && python3 bin/sync_publications.py`.
 
 ### A new talk / course / blog post
 
