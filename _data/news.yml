@@ -1,0 +1,17 @@
+# Recent news / updates shown on the homepage.
+# Most-recent first by date.
+# Fields:
+#   date: YYYY-MM-DD (required)
+#   text: short one-line description (required)
+#   link: optional URL to make the text a link
+#
+# Replace these illustrative entries with real items as they happen.
+- date: 2026-03-01
+  text: "Example item — replace with a real update."
+
+- date: 2026-01-15
+  text: "Example item with a link — replace with a real update."
+  link: "/publications/"
+
+- date: 2025-09-01
+  text: "Example item — replace with a real update."
