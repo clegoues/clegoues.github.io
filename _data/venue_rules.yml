@@ -39,6 +39,7 @@ rules:
           - "DSN-W"
           - "FoSER"
           - "Deep Learning for Code"
+          - "Conference on Automation of Software Test"
     set:
       pubtype: 1
       abbrv_from: workshop_map
@@ -72,6 +73,24 @@ rules:
     set:
       pubtype: 1
       abbrv_from: short_track_map
+
+  # @article entries that carry a conference-style `booktitle` field (rare
+  # but real: some lab-bib entries use `@article` even when the venue is a
+  # conference proceedings). Must come BEFORE the @article→journal default.
+  - match:
+      entry_type: article
+      field_contains_any:
+        booktitle:
+          - "International Conference on Software"
+          - "USENIX Security"
+          - "European Software Engineering"
+          - "Foundations of Software Engineering"
+          - "Symposium on Software Testing"
+          - "Conference on Automated Software Engineering"
+          - "Conference on the Foundations of Software"
+    set:
+      pubtype: 0
+      abbrv_from: conference_map
 
   # Journals (@article catches all; map venue to abbrv)
   - match:
@@ -122,6 +141,7 @@ journal_map:
   "Empirical Software Engineering": "EMSE"
   "Empir. Softw. Eng.": "EMSE"
   "IEEE Software": "IEEE Software"
+  "IEEE Softw.": "IEEE Software"
   "Software Quality Journal": "SQJ"
   "Trans. Auton. Adapt. Syst.": "TAAS"
   "Autonomous Agents and Multi-Agent Systems": "AAMAS"
@@ -130,12 +150,17 @@ journal_map:
 conference_map:
   # Most-specific phrases first so they don't get short-circuited by a
   # broader substring later in the table.
+  #
+  # The ".ISSTA" / ".FSE" forms catch the lab's `Proc. ACM Softw. Eng. 2.ISSTA`
+  # dialect. Must come before the broader "Symposium on..." rule.
+  ".ISSTA": "ISSTA"
+  ".FSE": "FSE"
   "European Software Engineering Conference": "ESEC/FSE"
   "Foundations of Software Engineering": "FSE"
   "International Conference on Software Engineering": "ICSE"
   "Symposium on Software Testing and Analysis": "ISSTA"
   "Automated Software Engineering": "ASE"
-  "Software Analysis, Evolution and Reengineering": "SANER"
+  "Software Analysis Evolution and Reengineering": "SANER"
   "Software Maintenance and Evolution": "ICSME"
   "USENIX Security": "USENIX Sec."
   "Network and Distributed System Security": "NDSS"
@@ -154,8 +179,12 @@ conference_map:
   "Formal Methods and Models for System Design": "MEMOCODE"
   "Software Engineering and Formal Methods": "SEFM"
   "Program Comprehension": "ICPC"
+  "Software Engineering for Adaptive and Self-Managing Systems": "SEAMS"
   "Self-Adaptive and Self-Managing Systems": "SEAMS"
+  "Autonomic Computing and Self-Organizing": "ACSOS"
   "Self-Organizing Systems": "ACSOS"
+  "Computer Security Applications": "ACSAC"
+  "Summit on Advances in Programming Languages": "SNAPL"
   "Architectural Support for Programming Languages and Operating Systems": "ASPLOS"
   "SIGPLAN": "PLDI"
 
@@ -171,6 +200,11 @@ workshop_map:
   "NIER": "NIER"
   "GI '": "GI"
   "Genetic Improvement": "GI"
+  "AST@ICSE": "AST"
+  "Conference on Automation of Software Test": "AST"
+  "AAAI Workshop": "AAAI Workshop"
+  "Fuzzing Workshop": "FUZZING"
+  "Fuzzing": "FUZZING"
 
 short_track_map:
   "ICSE-SEIP": "ICSE SEIP"

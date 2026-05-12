@@ -206,6 +206,31 @@ def normalize_author(authors):
     return authors.replace("{Le Goues}", "{Le~Goues}")
 
 
+def _flat(s):
+    """Normalize a venue/booktitle/journal string for substring matching.
+
+    Lower-cases, drops BibTeX braces (used to suppress kerning/capitalization
+    on acronyms like {AAAI} or {IEEE}), drops most punctuation (commas,
+    periods, parentheses, brackets, colons, slashes, ampersands), and
+    collapses any whitespace run to a single space. The point is that the
+    rule lookup tables can write a single canonical phrase like
+
+        software analysis evolution and reengineering
+
+    and match every BibTeX dialect: "Software Analysis, Evolution, and
+    Reengineering", "Software Analysis, Evolution and Reengineering" with
+    or without an Oxford comma, braced acronyms, line-wrapped values, etc.
+    """
+    s = s.lower()
+    # Drop braces and the common punctuation that varies between dialects.
+    # Keep letters, digits, spaces, and a handful of helpful separators
+    # (@ for tracks like AST@ICSE, # for nothing in particular, apostrophes
+    # for "GI '18" style suffixes).
+    s = re.sub(r"[{}()\[\],.:/;&\"]", " ", s)
+    # Collapse all whitespace.
+    return re.sub(r"\s+", " ", s).strip()
+
+
 def apply_venue_rules(entry_type, fields, rules_data):
     """Return dict of fields to set (pubtype, abbrv) based on rules."""
     rules = rules_data.get("rules", [])
@@ -213,11 +238,11 @@ def apply_venue_rules(entry_type, fields, rules_data):
         match = rule.get("match", {})
         if match.get("entry_type") != entry_type:
             continue
-        # Check all field-contains constraints.
+        # Check all field-contains constraints (whitespace-normalized).
         all_field_matches = True
         for field_name, needles in match.get("field_contains_any", {}).items():
-            haystack = fields.get(field_name, "").lower()
-            if not any(n.lower() in haystack for n in needles):
+            haystack = _flat(fields.get(field_name, ""))
+            if not any(_flat(n) in haystack for n in needles):
                 all_field_matches = False
                 break
         if not all_field_matches:
@@ -232,11 +257,12 @@ def apply_venue_rules(entry_type, fields, rules_data):
             result["abbrv"] = setblock["abbrv"]
         if "abbrv_from" in setblock:
             table = rules_data.get(setblock["abbrv_from"], {})
-            # Search booktitle then journal for first matching substring.
+            # Search booktitle then journal for first matching substring
+            # (whitespace-normalized; lab bib often wraps venue names).
             for haystack_field in ("booktitle", "journal"):
-                haystack = fields.get(haystack_field, "")
+                haystack = _flat(fields.get(haystack_field, ""))
                 for needle, value in table.items():
-                    if needle.lower() in haystack.lower():
+                    if _flat(needle) in haystack:
                         result["abbrv"] = value
                         break
                 if "abbrv" in result:
@@ -416,10 +442,16 @@ def main():
         rule_set = apply_venue_rules(entry_type, kept, rules_data)
         kept.update(rule_set)
 
-        # Apply per-bibkey overrides (these win).
+        # Apply per-bibkey overrides (these win). A value of `null` in the
+        # override drops the field entirely — useful for suppressing a field
+        # that venue_rules.yml inferred but you want absent (e.g., abbrv on
+        # a guest-editorial pubtype=2 entry).
         if overrides_data and key in overrides_data:
             for ofield, oval in (overrides_data[key] or {}).items():
-                kept[ofield] = str(oval) if not isinstance(oval, str) else oval
+                if oval is None:
+                    kept.pop(ofield, None)
+                else:
+                    kept[ofield] = oval if isinstance(oval, str) else str(oval)
 
         # Download materials if present.
         if key in materials_index:

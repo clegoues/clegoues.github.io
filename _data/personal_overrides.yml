@@ -14,4 +14,37 @@
 # For full hand control over an entry, move it below the END AUTO-SYNCED REGION
 # marker in _bibliography/references.bib instead.
 
-# (empty by default)
+# Guest editorial in IEEE Software special issue. Pubtype 2 ("wacky") so
+# the bib_template skips the venue tag; suppress abbrv that journal_map
+# would otherwise infer.
+legoues21ieeesw:
+  pubtype: 2
+  abbrv: null
+
+# DSN Industry-Track paper (distinct from main DSN track).
+zizyte21dsn:
+  pubtype: 1
+  abbrv: DSN Industry
+
+# Dagstuhl seminar reports (not research papers; no venue tag).
+DagstuhlGI2018:
+  pubtype: 2
+  abbrv: null
+DagstuhlAPR2017:
+  pubtype: 2
+  abbrv: null
+
+# DSN Industry-Track Workshop paper.
+WeimerTrustedRepair2016:
+  pubtype: 1
+  abbrv: DSN Industry
+
+# ICSME Early Research Achievements track (short paper).
+XuanBachSynthesisEngines2016:
+  pubtype: 1
+  abbrv: ICSME ERA
+
+# SEAMS Position-paper track.
+CokerSASS2015:
+  pubtype: 1
+  abbrv: SEAMS Position
