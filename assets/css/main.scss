@@ -56,9 +56,9 @@ img {
 /* Ensure sidebar content is responsive */
 .sidebar {
   @include breakpoint($large) {
-    width: calc(200px - 1em);
+    width: 240px;
   }
-  
+
   img {
     max-width: 100%;
     height: auto;
