@@ -1,0 +1,14 @@
+# Bibkeys to exclude from the personal site, even if they appear in the
+# lab bib with Le Goues as a co-author.
+#
+# Expected to stay near-empty. Add a bibkey here only if a lab-side paper
+# really should not appear on the personal /publications/ page.
+#
+# Format: a YAML list of bibkey strings, e.g.:
+#
+#   - some_paper_bibkey
+#   - another_paper_bibkey
+#
+# (empty by default)
+
+skip: []

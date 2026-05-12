@@ -1,0 +1,187 @@
+# Rules for inferring `pubtype` and `abbrv` on the personal site from a
+# lab-side bibtex entry.
+#
+# Used by bin/sync_publications.py.
+#
+# Each rule has a `match` block and a `set` block. The transformer walks
+# rules in order; the FIRST match wins.
+#
+# match.entry_type:        BibTeX entry type (article, inproceedings, book, ...)
+# match.field_contains_any: { field: [substring, ...] } — case-insensitive substring
+#                            match anywhere in the named field. ANY substring matching
+#                            satisfies the rule. Multiple fields => ALL must match.
+#
+# set.pubtype:             literal value to assign (0=full, 1=short)
+# set.abbrv:               literal value to assign
+# set.abbrv_from:          name of a lookup table below (journal_map, conference_map,
+#                            workshop_map, short_track_map). The transformer searches
+#                            the entry's booktitle/journal for the first substring
+#                            in that table and assigns the matched value.
+
+rules:
+  # Workshops — venue-name signals. The same rule is matched both for
+  # inproceedings entries AND for misclassified @article entries that
+  # carry a booktitle field (rare but real, e.g. registered reports).
+  - match:
+      entry_type: inproceedings
+      field_contains_any:
+        booktitle: &workshop_substrings
+          - "Workshop"
+          - "LLM4Code"
+          - "GI '"
+          - "BotSE"
+          - "@ICSE"
+          - "@SPLASH"
+          - "@FSE"
+          - "DSN Workshop"
+          - "ICSE-NIER"
+          - "NIER"
+          - "DSN-W"
+          - "FoSER"
+          - "Deep Learning for Code"
+    set:
+      pubtype: 1
+      abbrv_from: workshop_map
+  - match:
+      entry_type: article
+      field_contains_any:
+        booktitle: *workshop_substrings
+    set:
+      pubtype: 1
+      abbrv_from: workshop_map
+
+  # Short tracks / industry / posters / supplemental volumes
+  - match:
+      entry_type: inproceedings
+      field_contains_any:
+        booktitle:
+          - "Industry Track"
+          - "Demonstration"
+          - "Tools Track"
+          - "Doctoral"
+          - "Companion"
+          - "Supplemental"
+          - "Late-Breaking"
+          - "Poster"
+          - "Short Paper"
+          - "ICSE-SEIP"
+          - "SEIP"
+          - "MSR Challenge"
+          - "DSN-S"
+          - "Supplemental Volume"
+    set:
+      pubtype: 1
+      abbrv_from: short_track_map
+
+  # Journals (@article catches all; map venue to abbrv)
+  - match:
+      entry_type: article
+    set:
+      pubtype: 0
+      abbrv_from: journal_map
+
+  # Books / chapters / proceedings
+  - match:
+      entry_type: inbook
+    set:
+      pubtype: 0
+      abbrv: "Book Chapter"
+  - match:
+      entry_type: book
+    set:
+      pubtype: 0
+      abbrv: "Edited Volume"
+  - match:
+      entry_type: proceedings
+    set:
+      pubtype: 0
+      abbrv: "Proceedings"
+
+  # Default: full conference paper
+  - match:
+      entry_type: inproceedings
+    set:
+      pubtype: 0
+      abbrv_from: conference_map
+
+
+# ============================================================================
+# Lookup tables
+# ============================================================================
+# Each table is an ordered dict; the transformer iterates entries IN ORDER
+# and returns the value of the first key whose substring appears in the
+# matched field. Order matters: put more-specific substrings first.
+
+journal_map:
+  "Transactions on Software Engineering Methodology": "TOSEM"
+  "Trans. Softw. Eng. Methodol.": "TOSEM"
+  "Transactions on Software Engineering": "TSE"
+  "Trans. Software Eng.": "TSE"
+  "Communications of the ACM": "CACM"
+  "Commun. ACM": "CACM"
+  "Empirical Software Engineering": "EMSE"
+  "Empir. Softw. Eng.": "EMSE"
+  "IEEE Software": "IEEE Software"
+  "Software Quality Journal": "SQJ"
+  "Trans. Auton. Adapt. Syst.": "TAAS"
+  "Autonomous Agents and Multi-Agent Systems": "AAMAS"
+  "Genetic Programming and Evolvable Machines": "GPEM"
+
+conference_map:
+  # Most-specific phrases first so they don't get short-circuited by a
+  # broader substring later in the table.
+  "European Software Engineering Conference": "ESEC/FSE"
+  "Foundations of Software Engineering": "FSE"
+  "International Conference on Software Engineering": "ICSE"
+  "Symposium on Software Testing and Analysis": "ISSTA"
+  "Automated Software Engineering": "ASE"
+  "Software Analysis, Evolution and Reengineering": "SANER"
+  "Software Maintenance and Evolution": "ICSME"
+  "USENIX Security": "USENIX Sec."
+  "Network and Distributed System Security": "NDSS"
+  "Software Reliability Engineering": "ISSRE"
+  "Dependable Systems and Networks": "DSN"
+  "Robotics and Automation": "ICRA"
+  "Software Testing, Verification": "ICST"
+  "Software Testing": "ICST"
+  "Programming Language Design and Implementation": "PLDI"
+  "Compiler Construction": "CC"
+  "Mining Software Repositories": "MSR"
+  "Genetic and Evolutionary Computation": "GECCO"
+  "Search Based Software Engineering": "SSBSE"
+  "Software Architecture": "ICSA"
+  "Detection of Intrusions and Malware": "DIMVA"
+  "Formal Methods and Models for System Design": "MEMOCODE"
+  "Software Engineering and Formal Methods": "SEFM"
+  "Program Comprehension": "ICPC"
+  "Self-Adaptive and Self-Managing Systems": "SEAMS"
+  "Self-Organizing Systems": "ACSOS"
+  "Architectural Support for Programming Languages and Operating Systems": "ASPLOS"
+  "SIGPLAN": "PLDI"
+
+workshop_map:
+  "LLM4Code": "LLM4Code"
+  "Deep Learning for Code": "DL4C"
+  "BotSE": "BotSE"
+  "Bots in Software Engineering": "BotSE"
+  "DSN Workshop": "DSN-W"
+  "FoSER": "FoSER"
+  "Future of Software Engineering": "FoSER"
+  "ICSE-NIER": "ICSE NIER"
+  "NIER": "NIER"
+  "GI '": "GI"
+  "Genetic Improvement": "GI"
+
+short_track_map:
+  "ICSE-SEIP": "ICSE SEIP"
+  "SEIP": "SEIP"
+  "Industry Track": "Industry"
+  "Demonstration": "Demo"
+  "Tools Track": "Tools"
+  "Doctoral": "Doctoral"
+  "MSR Challenge": "MSR Challenge"
+  "DSN-S": "DSN-S"
+  "Supplemental Volume": "DSN-S"
+  "Poster": "Poster"
+  "Companion": "Companion"
+  "Late-Breaking": "Late-Breaking"
