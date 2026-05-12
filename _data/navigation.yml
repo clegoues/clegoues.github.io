@@ -13,7 +13,7 @@ main:
     url: /assets/files/cv/legoues-cv.pdf
 
   - title: "Posts"
-    url: /year-archive.html
+    url: /year-archive/
 
 # secondary links shown in the footer
 secondary:

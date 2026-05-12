@@ -73,8 +73,8 @@ CSS custom properties on `:root` with `[data-theme="dark"]` overrides.
 | `--ink` | `#1A1A1A` | `#F2EFE9` |
 | `--ink-mute` | `#4A4A4A` | `#B8B0A1` |
 | `--rule` | `#E8E3D7` | `#2E2A23` |
-| `--accent` | `#B0152E` | `#D14258` |
-| `--accent-hover` | `#8B1024` | `#B83048` |
+| `--accent` | `#B0152E` | `#E0556B` |
+| `--accent-hover` | `#8B1024` | `#E66980` |
 
 Rationale: warm cream paper instead of pure white pairs with serif type and reads as "modern academic" rather than "default web template." Near-black ink (not the current muted gray) increases presence. CMU-adjacent red accent; slightly desaturated in light mode to work with cream, lifted in dark mode for legibility without sliding into pink.
 
