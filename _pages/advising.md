@@ -75,14 +75,17 @@ I also typically contribute to 17-808, Introduction to
 Software Engineering Research, as a member of the core faculty in Software
 Engineering (I coordinated, 2015-2017).
 
-**Current:**
+**Most recent:**
 
-Fall 2024. [17-214/514: Principles of Software Construction](https://cmu-17-214.github.io/f2024/)
+Spring 2026. [17-445/17-645/17-745/11-695: Machine Learning in Production/AI Engineering](https://mlip-cmu.github.io/)
 
 **Previous:**
-- Spring 2024.  [17-445/17-645/17-745/11-695 Machine Learning in Production/AI Engineering](https://mlip-cmu.github.io/s2024/)
+- Spring 2025. [17-445/17-645/17-745/11-695: Machine Learning in Production/AI Engineering](https://mlip-cmu.github.io/s2025/)
+- Fall 2024. [17-214/514: Principles of Software Construction](https://cmu-17-214.github.io/f2024/)
+- Spring 2024. [17-445/17-645/17-745/11-695: Machine Learning in Production/AI Engineering](https://mlip-cmu.github.io/s2024/)
 - Fall 2023. Sabbatical!
-- Fall 2022 and Spring 2023. [17-214/514: Principles of Software Construction](https://cmu-17-214.github.io/f2022/)
+- Spring 2023. [17-355/17-655/17-819: Program Analysis](https://cmu-program-analysis.github.io/)
+- Fall 2022. [17-214/514: Principles of Software Construction](https://cmu-17-214.github.io/f2022/)
 - Spring 2022. [17-214/514: Principles of Software Construction](https://cmu-17-214.github.io/s2022/)
 - *Spring-Fall 2021. Family leave/Teaching release*
 - Fall 2020. 17-313, Foundations of Software Engineering 
