@@ -4,8 +4,8 @@
 
 .masthead {
   position: fixed;
-  background: white;
-  border-bottom: 1px solid $border-color;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
   height: $masthead-height;
   top: 0;
   width: 100%;
@@ -20,7 +20,7 @@
     @include container;
     @include clearfix;
     padding: 1em 1em 1em;
-    font-family: $sans-serif-narrow;
+    font-family: var(--font-body, #{$inter});
 
     @include breakpoint($x-large) {
       max-width: $x-large;
@@ -54,5 +54,51 @@
   &--lg {
     padding-right: 2em;
     font-weight: 700;
+    font-family: var(--font-heading, #{$source-serif});
+    letter-spacing: -0.01em;
   }
+}
+
+
+/* Theme toggle button (lives at right edge of masthead) */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-left: 0.5rem;
+  padding: 0;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: $border-radius;
+  color: var(--ink-mute);
+  cursor: pointer;
+  -webkit-transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    color: var(--accent);
+    background: var(--surface);
+    border-color: var(--rule);
+  }
+
+  &:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
+
+  /* show only the icon for the current preference */
+  [data-theme-pref="auto"] & .icon-light,
+  [data-theme-pref="auto"] & .icon-dark { display: none; }
+  [data-theme-pref="light"] & .icon-auto,
+  [data-theme-pref="light"] & .icon-dark { display: none; }
+  [data-theme-pref="dark"] & .icon-auto,
+  [data-theme-pref="dark"] & .icon-light { display: none; }
 }

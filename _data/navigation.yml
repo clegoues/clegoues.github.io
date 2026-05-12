@@ -1,16 +1,27 @@
-# main links links
+# main navigation links
 main:
   - title: "Publications"
     url: /publications/
 
-  - title: "Advising and Teaching"
-    url: /advising.html
-
-  - title: "Talks and Misc Links"
+  - title: "Talks"
     url: /talks.html
 
-  - title: "Posts/Resources"
-    url: /year-archive.html
-    
+  - title: "Teaching"
+    url: /teaching/
+
   - title: "CV"
     url: /assets/files/cv/legoues-cv.pdf
+
+  - title: "Posts"
+    url: /year-archive.html
+
+# secondary links shown in the footer
+secondary:
+  - title: "Advising"
+    url: /advising.html
+
+  - title: "Calendar"
+    url: /calendar.html
+
+  - title: "Sitemap"
+    url: /sitemap/
