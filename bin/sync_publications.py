@@ -231,22 +231,64 @@ def _flat(s):
     return re.sub(r"\s+", " ", s).strip()
 
 
+def _haystack(fields):
+    """Return the normalized concatenation of booktitle + journal for substring
+    matching. Most entries have only one of the two; concatenating handles both
+    plus the rare `@article` with a booktitle field.
+    """
+    return _flat((fields.get("booktitle", "") + " " + fields.get("journal", "")))
+
+
+def _lookup_abbrv(haystack, table):
+    """Return the first table-value whose normalized key is a substring of
+    the (already-normalized) haystack, or None.
+    """
+    for needle, value in table.items():
+        if _flat(needle) in haystack:
+            return value
+    return None
+
+
+def _entry_type_matches(rule_type, entry_type):
+    """`rule_type` is a string or a list of strings; `entry_type` is a string."""
+    if rule_type is None:
+        return True
+    if isinstance(rule_type, list):
+        return entry_type in rule_type
+    return entry_type == rule_type
+
+
 def apply_venue_rules(entry_type, fields, rules_data):
-    """Return dict of fields to set (pubtype, abbrv) based on rules."""
+    """Return dict of fields to set (pubtype, abbrv) based on rules.
+
+    The first rule whose match block matches the entry wins. A match block
+    may specify any subset of:
+      - entry_type (string or list)
+      - booktitle_via (name of a lookup table; matches if any table key is a
+        substring of the booktitle/journal)
+      - booktitle_also_any (extra literal substring triggers; OR'd with the
+        booktitle_via check — either is sufficient to trigger the rule)
+    """
+    haystack = _haystack(fields)
     rules = rules_data.get("rules", [])
     for rule in rules:
         match = rule.get("match", {})
-        if match.get("entry_type") != entry_type:
+        if not _entry_type_matches(match.get("entry_type"), entry_type):
             continue
-        # Check all field-contains constraints (whitespace-normalized).
-        all_field_matches = True
-        for field_name, needles in match.get("field_contains_any", {}).items():
-            haystack = _flat(fields.get(field_name, ""))
-            if not any(_flat(n) in haystack for n in needles):
-                all_field_matches = False
-                break
-        if not all_field_matches:
-            continue
+
+        # If the rule has a booktitle_via or booktitle_also_any constraint,
+        # at least one of them must match.
+        via_map_name = match.get("booktitle_via")
+        also_any = match.get("booktitle_also_any") or []
+        if via_map_name or also_any:
+            via_hit = False
+            if via_map_name:
+                table = rules_data.get(via_map_name, {})
+                if _lookup_abbrv(haystack, table) is not None:
+                    via_hit = True
+            also_hit = any(_flat(n) in haystack for n in also_any)
+            if not (via_hit or also_hit):
+                continue
 
         # Match — compute the set.
         result = {}
@@ -257,16 +299,9 @@ def apply_venue_rules(entry_type, fields, rules_data):
             result["abbrv"] = setblock["abbrv"]
         if "abbrv_from" in setblock:
             table = rules_data.get(setblock["abbrv_from"], {})
-            # Search booktitle then journal for first matching substring
-            # (whitespace-normalized; lab bib often wraps venue names).
-            for haystack_field in ("booktitle", "journal"):
-                haystack = _flat(fields.get(haystack_field, ""))
-                for needle, value in table.items():
-                    if _flat(needle) in haystack:
-                        result["abbrv"] = value
-                        break
-                if "abbrv" in result:
-                    break
+            val = _lookup_abbrv(haystack, table)
+            if val is not None:
+                result["abbrv"] = val
         return result
     return {}
 
