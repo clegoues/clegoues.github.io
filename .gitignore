@@ -19,3 +19,7 @@ todo.txt
 # Visual brainstorming companion (Superpowers skill)
 .superpowers/
 
+
+# Python bytecode
+__pycache__/
+*.pyc
