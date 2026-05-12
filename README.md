@@ -1,42 +1,104 @@
+# clairelegoues.com
 
-# Academic Pages
+Source for [clairelegoues.com](https://www.clairelegoues.com). Built with Jekyll, originally forked from the [Academic Pages](https://academicpages.github.io/) template and substantially customized.
 
-![pages-build-deployment](https://github.com/academicpages/academicpages.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)
+## Running locally
 
-Academic Pages is a Github Pages template for academic websites.
+```bash
+bundle install                                          # once, after cloning
+bundle exec jekyll serve \
+  --config _config.yml,_config.dev.yml \
+  --port 4040 --host 127.0.0.1 --livereload
+```
 
+Then open <http://127.0.0.1:4040/>. The `_config.dev.yml` overlay swaps `site.url` to localhost so nav links resolve locally instead of jumping to the production site.
 
-# Getting Started
+If you change `_config.yml`, you have to restart the server (Jekyll doesn't auto-reload config).
 
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Click the "Use this template" button in the top right.
-1. On the "New repository" page, enter your repository name as "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and add your content.
-1. Upload any files (like PDFs, .zip files, etc.) to the `files/` directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.  
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
+## Deploying
 
-See more info at https://academicpages.github.io/
+Pushing to the `source` branch triggers `.github/workflows/build-and-deploy.yml`, which builds the site on a runner and force-pushes `_site/` to `master`. GitHub Pages serves from `master`. End-to-end deploy takes 1–2 minutes after push.
 
-## Running Locally
+There is no GitHub-Pages-side Jekyll build, which means **all plugins work**, including `jekyll-scholar` (not whitelisted by GitHub Pages otherwise).
 
-When you are initially working your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
+## Repository layout
 
-1. Clone the repository and made updates as detailed above.
-1. Make sure you have ruby-dev, bundler, and nodejs installed: `sudo apt install ruby-dev ruby-bundler nodejs`
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-1. Run `jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
+```
+_config.yml             Site settings: author info, plugins, collections, scholar config.
+_config.dev.yml         Local-only overlay (URL). Used via --config _config.yml,_config.dev.yml.
+_data/
+  navigation.yml        Top-nav and footer-nav link lists.
+  news.yml              Homepage "Recent" items. Edit this to update news.
+_pages/                 Static pages. about.md is the homepage.
+_publications/          Per-paper detail pages (one .md per paper).
+_bibliography/          .bib files rendered into /publications/ via jekyll-scholar.
+_talks/                 Per-talk pages.
+_teaching/              Per-course pages.
+_posts/                 Blog posts.
+_layouts/               Page templates.
+_includes/              Reusable template fragments.
+_sass/                  SCSS partials. _theme.scss has the design tokens.
+assets/
+  css/main.scss         SCSS entry point.
+  fonts/                Self-hosted woff2 (Inter, Source Serif 4).
+  files/cv/             CV PDF lives here (linked from nav).
+  papers/               PDFs of papers, referenced from .bib entries.
+images/                 Site images (headshot, etc.).
+```
 
-If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essentials gcc make`
+## Updating common things
 
-# Maintenance 
+### Homepage news
 
-Bug reports and feature requests to the template  should be [submitted via GitHub](https://github.com/academicpages/academicpages.github.io/issues/new/choose). For questions concerning how to style the template, please feel free to start a [new discussion on GitHub](https://github.com/academicpages/academicpages.github.io/discussions).
+Edit `_data/news.yml`. Each item:
 
-This repository was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License (see LICENSE.md). It is currently being maintained by [Robert Zupko](https://github.com/rjzupkoii) and additional maintainers would be welcomed.
+```yaml
+- date: 2026-04-15           # required, YYYY-MM-DD; controls sort order
+  text: "Short description." # required
+  link: "/publications/foo/" # optional; site-relative or full URL
+```
 
-## Bugfixes and enhancements
+Order in the file doesn't matter — the include sorts by date descending. Rendered as "Mon YYYY" on the homepage.
 
-If you have bugfixes and enhancements that you would like to submit as a pull request, you will need to [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) this repository as opposed to using it as a template. This will also allow you to [synchronize your copy](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) of template to your fork as well.
+### Navigation
 
-Unfortunately, one logistical issue with a template theme like Academic Pages that makes it a little tricky to get bug fixes and updates to the core theme. If you use this template and customize it, you will probably get merge conflicts if you attempt to synchronize. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch.
+Edit `_data/navigation.yml`. Two lists:
+
+- `main:` — top nav (Publications, Talks, etc.)
+- `secondary:` — footer secondary links (Calendar, Sitemap)
+
+Each entry has `title:` and `url:` (site-relative or absolute).
+
+### Personal info (name, role, headshot, social links)
+
+Edit the `author:` block in `_config.yml`. Adding a key like `linkedin: "claire-le-goues-9b39985"` makes the corresponding social link appear in the sidebar; the link templates live in `_includes/author-profile.html`. Recognized keys include `email`, `googlescholar`, `orcid`, `dblp`, `github`, `bluesky`, `linkedin`, `arxiv`, plus many more (see the include for the full list).
+
+### A new publication
+
+Two options:
+1. **Bibliography entry** (preferred): add to `_bibliography/papers.bib`. `jekyll-scholar` renders it on `/publications/` automatically. The bib-template at `_layouts/bib_template.html` handles `pdf`, `slides.pdf`, `code`, `doi`, etc. links.
+2. **Standalone page**: a Markdown file in `_publications/` with appropriate frontmatter.
+
+### A new talk / course / blog post
+
+Drop a file in `_talks/`, `_teaching/`, or `_posts/` respectively. Existing entries in those directories are templates.
+
+### CV
+
+The deployed CV PDF lives at `assets/files/cv/legoues-cv.pdf`. The nav points there. Replace that file to update.
+
+## Design system
+
+The visual layer is defined in `_sass/_theme.scss`:
+
+- **Typography:** Source Serif 4 (headings) + Inter (body / UI), self-hosted in `assets/fonts/`.
+- **Palette:** CSS custom properties on `:root` (light) with `[data-theme="dark"]` overrides. Warm cream background, near-black ink, CMU-adjacent red accent.
+- **Dark mode:** auto + manual toggle in the masthead. Preference is stored in `localStorage` under key `theme` (values: `auto` / `light` / `dark`). The init script in `_includes/theme-init.html` resolves the preference before paint to prevent flash.
+
+To change a color: edit the relevant `--token` in `_sass/_theme.scss`. Everything downstream uses `var(--token)` references.
+
+The design spec lives at `docs/superpowers/specs/2026-05-11-academic-site-modernization-design.md`.
+
+## License
+
+Site content © Claire Le Goues. Original Academic Pages template is MIT-licensed (see `LICENSE`); it was forked by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) © 2016 Michael Rose.
