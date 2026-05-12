@@ -38,7 +38,10 @@ Without `_config.dev.yml`, nav links render with the production URL (`https://ww
 | Masthead / nav / theme-toggle styling | `_sass/_masthead.scss`, `_sass/_navigation.scss` |
 | Theme-toggle markup / behavior | `_includes/theme-toggle.html`, `_includes/theme-init.html` |
 | Publication bib rendering | `_layouts/bib_template.html` and `_sass/_archive.scss` (.refs-row, .reference, .refs-link, .abbrv) |
-| Add a publication | `_bibliography/papers.bib` (`jekyll-scholar` does the rest) |
+| Add a publication (lab-coauthored) | Add to the **lab repo**, not here. The weekly sync picks it up. See "Publications sync" below. |
+| Add a publication (personal-only, no lab) | `_bibliography/references.bib` below the END AUTO-SYNCED REGION marker; drop PDF in `assets/papers/`. |
+| Override a synced entry | `_data/personal_overrides.yml` (light) or move below END marker (full hand control). |
+| Exclude a synced entry | Add bibkey to `_data/personal_skip.yml`. |
 
 ## Conventions specific to this site
 
@@ -48,6 +51,36 @@ Without `_config.dev.yml`, nav links render with the production URL (`https://ww
 - **Susy grid is preserved.** Don't replace `span(N of 12)` / `span(N of 12 last)` calls with CSS Grid — too much downstream churn. Tweak via padding/margin instead.
 - **Greedy-nav (jQuery plugin) auto-collapses overflowing nav items into a hamburger menu.** Anything you want kept visible (e.g., the theme toggle) must live *outside* `#site-nav`.
 - **The compiled CSS uses unicode glyphs (UTF-8) for Font Awesome icon `content:` values.** They look invisible in plain text but they're real. Don't "fix" them.
+
+## Publications sync (auto from lab repo)
+
+The publications page is mostly auto-synced from the lab repo at `squaresLab/squareslab.github.io` (branch `update`). Workflow:
+
+1. **Students add new papers to the lab repo.** They write a normal BibTeX entry into `_bibliography/publications.bib` and drop the PDF at `public/materials/<bibkey>.pdf` (plus optional `<bibkey>.slides.pdf`, `.poster.pdf`).
+2. **Weekly cron** (Mondays 08:17 UTC) and **manual workflow_dispatch** trigger `.github/workflows/sync-publications.yml` here, which runs `bin/sync_publications.py`.
+3. The transformer:
+   - Fetches the lab bib + materials directory listing.
+   - Keeps only entries where the author field substring-matches `le goues` / `le~goues` / `le-goues`.
+   - Applies `_data/venue_rules.yml` to infer `pubtype` (0=full, 1=short) and `abbrv` (venue short name) from the BibTeX entry type + venue substrings.
+   - Downloads matching PDFs/slides/posters into `assets/papers/<bibkey>.<ext>`.
+   - Splices the result into `_bibliography/references.bib` between the `% BEGIN AUTO-SYNCED REGION` and `% END AUTO-SYNCED REGION` markers.
+4. **Opens a PR** on the `bot/pub-sync` branch. User reviews and merges.
+
+### When to touch what
+
+- **New lab-coauthored paper:** Add to the lab repo. Wait for sync.
+- **Personal-only paper (pre-CMU, solo, etc.):** Add directly to `_bibliography/references.bib` *below* the END marker. Drop PDF in `assets/papers/`. The sync never touches the hand-maintained region.
+- **Override one synced field (e.g. wrong abbrv):** `_data/personal_overrides.yml`, keyed by bibkey. Fields here win over rule-inferred values.
+- **Full hand control over a synced entry:** Move the entry from the synced region to below the END marker and edit. The transformer detects the duplicate bibkey and skips the synced version with a warning.
+- **Drop a synced entry entirely:** Add bibkey to `_data/personal_skip.yml` under `skip:`.
+
+### Sync mechanics gotchas
+
+- **Bibkey is the canonical key.** Personal and lab bibs were aligned in a one-time cleanup pass. If you ever add a paper manually here that's also in the lab bib, use the lab's bibkey to avoid duplicates.
+- **PyYAML is required.** Locally: `pip install pyyaml`. CI: handled by the workflow.
+- **Idempotency**: running `python3 bin/sync_publications.py` twice on the same lab state produces no diff. If it doesn't, that's a bug in the transformer.
+- **Local dry-run**: `python3 bin/sync_publications.py` then `git diff _bibliography/references.bib` and `git status assets/papers/`. Revert with `git checkout -- _bibliography/references.bib assets/papers/`.
+- **Venue rules** live in `_data/venue_rules.yml`. First-match-wins. Adding a new venue (e.g., a new conference abbreviation) is just adding a line to the appropriate `*_map` table.
 
 ## Gotchas (things that surprised this session)
 
