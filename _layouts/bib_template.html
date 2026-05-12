@@ -31,7 +31,7 @@ table, th, td {
         {% assign first = true %}
         {% if links.pdf %}
         {% if first %}{% assign first = false %}{% endif %}<span class="refs-link">
-          <a href="{{links.pdf}}"><i class="far fa-file-alt"></i> PDF</a>
+          <a href="{{links.pdf}}"><i class="fas fa-file-lines"></i> PDF</a>
         </span>
         {% endif %}
         {% if links['slides.pdf'] %}
@@ -65,12 +65,12 @@ table, th, td {
         {% endif %}
         {% if links['poster.pdf'] %}
         {% if first %}{% assign first = false %}{% else %}&middot; {% endif %}<span class="refs-link">
-          <a href="{{links['poster.pdf']}}"><i class="far fa-list-alt"></i> Poster</a>
+          <a href="{{links['poster.pdf']}}"><i class="fas fa-rectangle-list"></i> Poster</a>
         </span>
         {% endif %}
         {% if entry.code %}
         {% if first %}{% assign first = false %}{% else %}&middot; {% endif %}<span class="refs-link">
-          <a href="{{entry.code}}"><i class="far fa-file-code"></i> Code</a>
+          <a href="{{entry.code}}"><i class="fas fa-file-code"></i> Code</a>
         </span>
         {% endif %}
         {% if entry.tool %}
