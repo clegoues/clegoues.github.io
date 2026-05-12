@@ -11,9 +11,12 @@ body {
   margin: 0;
   padding: $masthead-height 0 0;
   padding-bottom: 9em;
-  color: $text-color;
-  font-family: $global-font-family;
-  line-height: 1.5;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body, #{$global-font-family});
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   &.overflow--hidden {
     /* when primary navigation is visible, the content in the background won't scroll */
@@ -22,27 +25,31 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 2em 0 0.5em;
+  margin: 1.6em 0 0.5em;
   line-height: 1.2;
-  font-family: $header-font-family;
-  font-weight: bold;
+  font-family: var(--font-heading, #{$header-font-family});
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
 }
 
 h1 {
   margin-top: 0;
-  font-size: $type-size-3;
+  font-size: $type-size-2;
 }
 
 h2 {
-  font-size: $type-size-4;
+  font-size: $type-size-3;
 }
 
 h3 {
-  font-size: $type-size-5;
+  font-size: $type-size-4;
+  font-weight: 600;
 }
 
 h4 {
-  font-size: $type-size-6;
+  font-size: $type-size-5;
+  font-weight: 600;
 }
 
 h5 {
@@ -64,7 +71,7 @@ p {
 u,
 ins {
   text-decoration: none;
-  border-bottom: 1px solid $text-color;
+  border-bottom: 1px solid var(--ink);
   a {
     color: inherit;
   }
@@ -87,7 +94,7 @@ abbr[title],
 abbr[data-original-title] {
   text-decoration: none;
   cursor: help;
-  border-bottom: 1px dotted $text-color;
+  border-bottom: 1px dotted var(--ink-mute);
 }
 
 /* blockquotes */
@@ -97,7 +104,8 @@ blockquote {
   padding-left: 1em;
   padding-right: 1em;
   font-style: italic;
-  border-left: 0.25em solid $primary-color;
+  color: var(--ink-mute);
+  border-left: 3px solid var(--accent);
 
   cite {
     font-style: italic;
@@ -112,8 +120,23 @@ blockquote {
 /* links */
 
 a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  font-weight: 500;
+  -webkit-transition: color 0.15s ease;
+  transition: color 0.15s ease;
+
+  &:hover,
+  &:focus {
+    color: var(--accent-hover);
+  }
+
   &:focus {
     @extend %tab-focus;
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }
 
   &:hover,
@@ -137,13 +160,12 @@ a > code,
 li > code,
 figcaption > code,
 td > code {
-  padding-top: 0.1rem;
-  padding-bottom: 0.1rem;
-  font-size: $type-size-6;
-  background: $code-background-color;
-  border: 1px solid $lighter-gray;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.9em;
+  background: var(--code-bg);
+  border: 1px solid var(--rule);
   border-radius: $border-radius;
-  box-shadow: $box-shadow;
+  box-shadow: none;
 
   &:before, &:after {
     letter-spacing: -0.2em;
@@ -155,9 +177,9 @@ td > code {
 
 hr {
   display: block;
-  margin: 1em 0;
+  margin: 2em 0;
   border: 0;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid var(--rule);
 }
 
 /* lists */
@@ -236,20 +258,20 @@ figure {
 
 figcaption {
   margin-bottom: 0.5em;
-  color: mix(#fff, $text-color, 25%);
-  font-family: $caption-font-family;
+  color: var(--ink-mute);
+  font-family: var(--font-body, #{$caption-font-family});
   font-size: $type-size-6;
 
   a {
-    color: inherit;
+    color: var(--accent);
     text-decoration: none;
-    border-bottom: 1px solid $light-gray;
+    border-bottom: 1px solid var(--rule);
     -webkit-transition: $global-transition;
     transition: $global-transition;
 
     &:hover {
-      color: #000;
-      border-bottom-color: #000;
+      color: var(--accent-hover);
+      border-bottom-color: var(--accent);
     }
   }
 }
