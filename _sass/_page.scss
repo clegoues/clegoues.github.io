@@ -51,8 +51,8 @@
 .page__content {
 
   h2 {
-    padding-bottom: 0.5em;
-    border-bottom: 1px solid $border-color;
+    padding-bottom: 0.4em;
+    border-bottom: 1px solid var(--rule);
   }
 
   p, li, dl {
@@ -198,7 +198,7 @@
 .page__share {
   margin-top: 2em;
   padding-top: 1em;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid var(--rule);
 
   @include breakpoint(max-width $small) {
     .btn span {
@@ -227,8 +227,8 @@
 
 .page__meta {
   margin-top: 2em;
-  color: mix(#fff, $gray, 25%);
-  font-family: $sans-serif;
+  color: var(--ink-mute);
+  font-family: var(--font-body, #{$inter});
   font-size: $type-size-6;
 
   p {
@@ -267,12 +267,14 @@
   margin-bottom: 8px;
   padding: 5px 10px;
   text-decoration: none;
-  border: 1px solid $light-gray;
+  color: var(--ink-mute);
+  border: 1px solid var(--rule);
   border-radius: $border-radius;
 
   &:hover {
     text-decoration: none;
-    color: $link-color-hover;
+    color: var(--accent);
+    border-color: var(--accent);
   }
 }
 
@@ -290,13 +292,13 @@
   margin-bottom: 10px;
   padding-top: 2rem;
   font-size: $type-size-6;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid var(--rule);
   text-transform: uppercase;
 }
 
 .page__comments-form {
   padding: 1em;
-  background: $lighter-gray;
+  background: var(--surface);
   transition: $global-transition;
 
   &.disabled {
@@ -318,7 +320,7 @@
   margin: 1em 0;
 
   &:not(:last-child) {
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid var(--rule);
   }
 }
 
@@ -342,7 +344,7 @@
     width: 80px;
     height: 80px;
     padding: 5px;
-    border: 1px solid $border-color;
+    border: 1px solid var(--rule);
   }
 }
 
@@ -380,7 +382,7 @@
 .page__related {
   margin-top: 2em;
   padding-top: 1em;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid var(--rule);
   @include clearfix();
   float: left;
 

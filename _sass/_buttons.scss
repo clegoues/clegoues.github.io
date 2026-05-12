@@ -12,18 +12,20 @@
   margin-bottom: 0.25em;
   padding: 0.5em 1em;
   color: #fff !important;
-  font-family: $sans-serif;
+  font-family: var(--font-body, #{$inter});
   font-size: $type-size-6;
-  font-weight: bold;
+  font-weight: 600;
   text-align: center;
   text-decoration: none;
-  background-color: $primary-color;
+  background-color: var(--accent);
   border: 0 !important;
   border-radius: $border-radius;
   cursor: pointer;
+  -webkit-transition: background-color 0.15s ease;
+  transition: background-color 0.15s ease;
 
   &:hover {
-    background-color: mix(white, #000, 20%);
+    background-color: var(--accent-hover);
   }
 
   .icon {
@@ -48,13 +50,14 @@
   /* for dark backgrounds */
 
   &--inverse {
-    color: $gray !important;
-    border: 1px solid $light-gray !important; /* override*/
-    background-color: #fff;
+    color: var(--ink) !important;
+    border: 1px solid var(--rule) !important; /* override*/
+    background-color: var(--surface);
 
     &:hover {
-      color: #fff !important;
-      border-color: $gray;
+      color: var(--accent) !important;
+      background-color: var(--bg);
+      border-color: var(--accent);
     }
   }
 

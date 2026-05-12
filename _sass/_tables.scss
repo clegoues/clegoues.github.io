@@ -5,32 +5,33 @@
 table {
   margin-bottom: 1em;
   width: 100%;
-  font-family: $global-font-family;
+  font-family: var(--font-body, #{$inter});
   font-size: $type-size-6;
   border-collapse: collapse;
-  border: 1px solid $light-gray;
+  border: 1px solid var(--rule);
+}
 
-  & + table {
-    margin-top: 1em;
-  }
+table + table {
+  margin-top: 1em;
 }
 
 thead {
-  background-color: $lighter-gray;
-  border-bottom: 1px solid $light-gray;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--rule);
 }
 
 th {
   padding: 0.5em;
-  font-weight: bold;
+  font-weight: 600;
   text-align: left;
-  border-right: 1px solid $light-gray;
+  border-right: 1px solid var(--rule);
+  color: var(--ink);
 }
 
 td {
   padding: 0.5em;
-  border-bottom: 1px solid $light-gray;
-  border-right: 1px solid $light-gray;
+  border-bottom: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
 }
 
 tr, td, th {

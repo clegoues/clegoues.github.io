@@ -28,11 +28,15 @@
 }
 
 .archive__subtitle {
-  margin: 1.414em 0 0;
-  padding-bottom: 0.5em;
-  font-size: $type-size-5;
-  color: mix(#fff, $gray, 25%);
-  border-bottom: 1px solid $border-color;
+  margin: 1.6em 0 0.4em;
+  padding-bottom: 0.4em;
+  font-family: var(--font-body, #{$inter});
+  font-size: $type-size-6;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-mute);
+  border-bottom: 1px solid var(--rule);
 
   + .list__item .archive__item-title {
     margin-top: 0.5em;
@@ -41,7 +45,9 @@
 
 .archive__item-title {
   margin-bottom: 0.25em;
-  font-family: $sans-serif-narrow;
+  font-family: var(--font-heading, #{$source-serif});
+  font-weight: 600;
+  letter-spacing: -0.005em;
 
   a + a {
     opacity: 0.5;
@@ -76,11 +82,11 @@
 
 .archive__item:hover {
   .archive__item-teaser {
-    box-shadow: 0 0 10px rgba(#000, 0.25);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   }
 
-  .archive__item-title {
-    text-decoration: underline;
+  .archive__item-title a {
+    color: var(--accent);
   }
 }
 
@@ -159,7 +165,7 @@
 .feature__wrapper {
   @include clearfix();
   margin-bottom: 2em;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid var(--rule);
 }
 
 .feature__item {
