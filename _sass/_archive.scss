@@ -249,3 +249,99 @@
     }
   }
 }
+
+
+/*
+   Publication / bibliography entries (jekyll-scholar)
+   ========================================================================== */
+
+.refs-row {
+  margin: 0.8em 0 1.2em;
+  padding-bottom: 1.2em;
+  border-bottom: 1px solid var(--rule);
+
+  table {
+    border: 0;
+    margin: 0;
+    font-size: 1em;
+  }
+
+  td {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    vertical-align: top;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.reference {
+  font-family: var(--font-body, #{$inter});
+  font-size: $type-size-5;
+  line-height: 1.55;
+  color: var(--ink);
+
+  em, i {
+    color: var(--ink-mute);
+    font-style: italic;
+  }
+
+  /* Author-self underline used by the bib_template */
+  u.ref {
+    color: var(--ink);
+    border-bottom: 1px solid var(--accent);
+    text-decoration: none;
+  }
+}
+
+.abbrv {
+  display: inline-block;
+  font-family: var(--font-body, #{$inter});
+  font-size: $type-size-7;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-mute);
+  padding-right: 1em;
+}
+
+.refs-link {
+  font-family: var(--font-body, #{$inter});
+  font-size: $type-size-6;
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+  }
+
+  .fas, .far, .fab {
+    color: var(--ink-mute);
+    margin-right: 4px;
+  }
+
+  a:hover .fas,
+  a:hover .far,
+  a:hover .fab {
+    color: var(--accent);
+  }
+}
+
+.bibtex-entry {
+  font-family: var(--font-mono, #{$monospace});
+  font-size: $type-size-7;
+  background: var(--code-bg);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: $border-radius;
+  padding: 1em;
+}
