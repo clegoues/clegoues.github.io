@@ -1,0 +1,85 @@
+/* ==========================================================================
+   Theme tokens (CSS custom properties) + web fonts
+   ========================================================================== */
+
+/* Inter — body / UI / nav / pills */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/inter/inter-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/fonts/inter/inter-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/fonts/inter/inter-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/fonts/inter/inter-700.woff2") format("woff2");
+}
+
+/* Source Serif 4 — headings */
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/fonts/source-serif-4/source-serif-4-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/fonts/source-serif-4/source-serif-4-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/fonts/source-serif-4/source-serif-4-700.woff2") format("woff2");
+}
+
+
+:root {
+  /* Color tokens — light */
+  --bg: #FBF9F4;
+  --surface: #FFFFFF;
+  --ink: #1A1A1A;
+  --ink-mute: #4A4A4A;
+  --rule: #E8E3D7;
+  --accent: #B0152E;
+  --accent-hover: #8B1024;
+  --code-bg: #F4EFE4;
+
+  /* Font stacks */
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Source Serif 4", Georgia, Times, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+[data-theme="dark"] {
+  --bg: #14110D;
+  --surface: #1C1916;
+  --ink: #F2EFE9;
+  --ink-mute: #B8B0A1;
+  --rule: #2E2A23;
+  --accent: #D14258;
+  --accent-hover: #B83048;
+  --code-bg: #1C1916;
+}
