@@ -90,6 +90,28 @@
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
 
+<script>
+  (function() {
+    try {
+      var pref = localStorage.getItem('theme') || 'auto';
+      var resolved = pref;
+      if (pref === 'auto') {
+        resolved = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', resolved);
+      document.documentElement.setAttribute('data-theme-pref', pref);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'light');
+      document.documentElement.setAttribute('data-theme-pref', 'auto');
+    }
+  })();
+</script>
+
+
+<!-- Preload hero-weight web fonts -->
+<link rel="preload" as="font" type="font/woff2" href="https://www.clairelegoues.com/assets/fonts/inter/inter-400.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="https://www.clairelegoues.com/assets/fonts/source-serif-4/source-serif-4-700.woff2" crossorigin>
+
 <!-- For all browsers -->
 <link rel="stylesheet" href="https://www.clairelegoues.com/assets/css/main.css">
 
@@ -142,29 +164,79 @@
       <nav id="site-nav" class="greedy-nav">
         <button><div class="navicon"></div></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="https://www.clairelegoues.com/"></a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="https://www.clairelegoues.com/">Claire Le Goues</a></li>
           
             
             <li class="masthead__menu-item"><a href="https://www.clairelegoues.com/publications/">Publications</a></li>
           
             
+            <li class="masthead__menu-item"><a href="https://www.clairelegoues.com/talks.html">Talks</a></li>
+          
+            
             <li class="masthead__menu-item"><a href="https://www.clairelegoues.com/advising.html">Advising and Teaching</a></li>
-          
-            
-            <li class="masthead__menu-item"><a href="https://www.clairelegoues.com/talks.html">Talks and Misc Links</a></li>
-          
-            
-            <li class="masthead__menu-item"><a href="https://www.clairelegoues.com/year-archive.html">Posts/Resources</a></li>
           
             
             <li class="masthead__menu-item"><a href="https://www.clairelegoues.com/assets/files/cv/legoues-cv.pdf">CV</a></li>
           
+            
+            <li class="masthead__menu-item"><a href="https://www.clairelegoues.com/year-archive/">Posts</a></li>
+          
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme">
+  <svg class="icon-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="9"></circle>
+    <path d="M12 3a9 9 0 0 0 0 18"></path>
+    <path d="M12 3v18" fill="currentColor" stroke="none"></path>
+    <path d="M3 12h9" stroke="none" fill="currentColor"></path>
+  </svg>
+  <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"></circle>
+    <path d="M12 2v2"></path><path d="M12 20v2"></path>
+    <path d="M4.93 4.93l1.41 1.41"></path><path d="M17.66 17.66l1.41 1.41"></path>
+    <path d="M2 12h2"></path><path d="M20 12h2"></path>
+    <path d="M4.93 19.07l1.41-1.41"></path><path d="M17.66 6.34l1.41-1.41"></path>
+  </svg>
+  <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+</button>
+<script>
+  (function() {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    var order = ['auto', 'light', 'dark'];
+    btn.addEventListener('click', function() {
+      var current = document.documentElement.getAttribute('data-theme-pref') || 'auto';
+      var next = order[(order.indexOf(current) + 1) % order.length];
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      var resolved = next;
+      if (next === 'auto') {
+        resolved = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', resolved);
+      document.documentElement.setAttribute('data-theme-pref', next);
+      btn.setAttribute('aria-pressed', next !== 'auto');
+    });
+    /* react to OS preference changes while in auto mode */
+    if (window.matchMedia) {
+      var mq = window.matchMedia('(prefers-color-scheme: dark)');
+      if (mq.addEventListener) {
+        mq.addEventListener('change', function(e) {
+          if ((document.documentElement.getAttribute('data-theme-pref') || 'auto') === 'auto') {
+            document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+          }
+        });
+      }
+    }
+  })();
+</script>
+
     </div>
   </div>
 </div>
+
 
     
 
@@ -196,7 +268,7 @@
   </div>
 
   <div class="author__urls-wrapper">
-    <button class="btn btn--inverse">Follow</button>
+    <button class="btn btn--inverse" aria-label="Show contact links">Links</button>
     <ul class="author__urls social-icons">
       <!-- Font Awesome icons / Biographic information  -->
       
@@ -207,7 +279,7 @@
       
       
       
-        <li><a href="mailto:clegoues@cs.cmu.edu"><i class="fas fa-fw fa-envelope icon-pad-right" aria-hidden="true"></i>Email</a></li>
+        <li class="author__email"><i class="fas fa-fw fa-envelope icon-pad-right" aria-hidden="true"></i><span class="author__email-address">clegoues@cs.cmu.edu</span></li>
       
 
       <!-- Font Awesome and Academicons icons / Academic websites -->
@@ -236,6 +308,8 @@
 
       <!-- Font Awesome icons / Social media -->
       
+        <li><a href="https://bsky.app/profile/clegoues.bsky.social"><i class="fab fa-fw fa-bluesky icon-pad-right" aria-hidden="true"></i>Bluesky</a></li>
+      
       
             
       
@@ -244,9 +318,9 @@
       
             
             
-            
       
-        <li><a href="https://lebrady.net/@clegoues"><i class="fab fa-fw fa-mastodon icon-pad-right" aria-hidden="true"></i>Mastodon</a></li>
+        <li><a href="https://www.linkedin.com/in/claire-le-goues-9b39985"><i class="fab fa-fw fa-linkedin icon-pad-right" aria-hidden="true"></i>LinkedIn</a></li>
+            
       
             
                   
@@ -254,8 +328,6 @@
       
             
             
-      
-        <li><a href="https://twitter.com/clegoues"><i class="fab fa-fw fa-x-twitter icon-pad-right" aria-hidden="true"></i>X (formerly Twitter)</a></li>
       
               
       
@@ -336,6 +408,8 @@
 <li>van Rooyen, S. et al. (1998) Effect of blinding and unmasking on the quality of peer review-a randomized trial. JAMA 280, 234-237.</li>
 </ol>
 
+
+        
 
         
 
@@ -604,24 +678,26 @@ still completely reasonable to find open source projects to study by trolling <a
 
         
 
+<div class="page__footer-inner">
+  
+    <nav class="page__footer-nav" aria-label="Secondary">
+      <ul>
+        
+          
+          <li><a href="https://www.clairelegoues.com/calendar.html">Calendar</a></li>
+        
+          
+          <li><a href="https://www.clairelegoues.com/sitemap/">Sitemap</a></li>
+        
+      </ul>
+    </nav>
+  
 
-<div class="page__footer-follow">
-  <ul class="social-icons">
-    
-      <li><strong>Follow:</strong></li>
-    
-    
-      <li><a href="http://github.com/clegoues"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
-    
-    
-    
-    <li><a href="https://www.clairelegoues.com/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
-    
-  </ul>
+  <div class="page__footer-meta">
+    <span class="page__footer-copyright">&copy; 2026 Claire Le Goues.</span>
+    <span class="page__footer-built">Built with <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a>.</span>
+  </div>
 </div>
-
-
-<div class="page__footer-copyright">&copy; 2026 Claire Le Goues. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
