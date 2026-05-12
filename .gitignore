@@ -16,3 +16,6 @@ package-lock.json
 .DS_Store
 todo.txt
 
+# Visual brainstorming companion (Superpowers skill)
+.superpowers/
+
