@@ -1,0 +1,17 @@
+# Per-entry field overrides for the publications sync.
+#
+# Keys are lab bibkeys; values are field maps that get merged into the
+# synced entry (last-write-wins). Use this for rare cases where the
+# venue_rules.yml inference is wrong for one specific paper, and you
+# don't want to add a more-specific rule to venue_rules.yml.
+#
+# Example:
+#   widder2024whatisabug:
+#     pubtype: 1
+#     abbrv: "CACM Viewpoint"
+#
+# For broader exclusions (drop an entry entirely), use _data/personal_skip.yml.
+# For full hand control over an entry, move it below the END AUTO-SYNCED REGION
+# marker in _bibliography/references.bib instead.
+
+# (empty by default)
