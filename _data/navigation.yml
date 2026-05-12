@@ -6,8 +6,8 @@ main:
   - title: "Talks"
     url: /talks.html
 
-  - title: "Teaching"
-    url: /teaching/
+  - title: "Advising and Teaching"
+    url: /advising.html
 
   - title: "CV"
     url: /assets/files/cv/legoues-cv.pdf
@@ -17,9 +17,6 @@ main:
 
 # secondary links shown in the footer
 secondary:
-  - title: "Advising"
-    url: /advising.html
-
   - title: "Calendar"
     url: /calendar.html
 
