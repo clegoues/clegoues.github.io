@@ -40,8 +40,8 @@ author:
   github           : "clegoues"
 
   # Social media
-  mastodon         : "https://lebrady.net/@clegoues" # URL
-  twitter          : clegoues # Username for X / Twitter
+  bluesky          : "clegoues.bsky.social" # handle
+  linkedin         : "claire-le-goues-9b39985" # slug from linkedin.com/in/<slug>
 
 
 # Site Settings
