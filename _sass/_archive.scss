@@ -256,8 +256,8 @@
    ========================================================================== */
 
 .refs-row {
-  margin: 0.8em 0 1.2em;
-  padding-bottom: 1.2em;
+  margin: 0;
+  padding: 0.55em 0 0.7em;
   border-bottom: 1px solid var(--rule);
 
   table {
@@ -273,6 +273,19 @@
     vertical-align: top;
   }
 
+  /* paragraphs inside a reference (jekyll-scholar wraps the rendered
+     citation in a <p>) shouldn't add their own block margin */
+  .reference > p {
+    margin: 0;
+  }
+
+  /* a refs-link follows the citation; keep it on its own line but
+     close to the citation above */
+  .refs-link {
+    display: inline-block;
+    margin-top: 0.2em;
+  }
+
   &:last-child {
     border-bottom: none;
   }
@@ -280,8 +293,8 @@
 
 .reference {
   font-family: var(--font-body, #{$inter});
-  font-size: $type-size-5;
-  line-height: 1.55;
+  font-size: $type-size-6;
+  line-height: 1.5;
   color: var(--ink);
 
   em, i {
@@ -310,7 +323,7 @@
 
 .refs-link {
   font-family: var(--font-body, #{$inter});
-  font-size: $type-size-6;
+  font-size: $type-size-7;
 
   a {
     color: var(--accent);
@@ -326,7 +339,7 @@
 
   .fas, .far, .fab {
     color: var(--ink-mute);
-    margin-right: 4px;
+    margin-right: 3px;
   }
 
   a:hover .fas,
