@@ -1,0 +1,70 @@
+name: Sync publications from lab repo
+
+on:
+  schedule:
+    - cron: '17 8 * * MON'  # weekly, Monday 08:17 UTC
+  workflow_dispatch: {}     # manual trigger (use after a known new paper)
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: source
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Run sync
+        id: sync
+        run: |
+          python3 bin/sync_publications.py 2>&1 | tee /tmp/sync_report.txt
+          {
+            echo 'report<<SYNC_REPORT_EOF'
+            cat /tmp/sync_report.txt
+            echo 'SYNC_REPORT_EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Detect changes
+        id: changes
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git status --short
+          fi
+
+      - name: Open pull request
+        if: steps.changes.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: bot/pub-sync
+          base: source
+          title: "Sync publications from lab repo"
+          body: |
+            Automated sync from `squareslab.github.io` (branch: `update`).
+
+            <details>
+            <summary>Sync report</summary>
+
+            ```
+            ${{ steps.sync.outputs.report }}
+            ```
+            </details>
+
+            Review the bib diff and any new PDFs in `assets/papers/`,
+            then merge to deploy.
+          commit-message: "Sync publications from lab repo"
+          delete-branch: true
