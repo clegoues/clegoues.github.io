@@ -19,11 +19,13 @@
 #                            in that table and assigns the matched value.
 
 rules:
-  # Workshops — venue-name signals
+  # Workshops — venue-name signals. The same rule is matched both for
+  # inproceedings entries AND for misclassified @article entries that
+  # carry a booktitle field (rare but real, e.g. registered reports).
   - match:
       entry_type: inproceedings
       field_contains_any:
-        booktitle:
+        booktitle: &workshop_substrings
           - "Workshop"
           - "LLM4Code"
           - "GI '"
@@ -37,6 +39,13 @@ rules:
           - "DSN-W"
           - "FoSER"
           - "Deep Learning for Code"
+    set:
+      pubtype: 1
+      abbrv_from: workshop_map
+  - match:
+      entry_type: article
+      field_contains_any:
+        booktitle: *workshop_substrings
     set:
       pubtype: 1
       abbrv_from: workshop_map
