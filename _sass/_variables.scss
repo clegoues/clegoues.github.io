@@ -50,7 +50,10 @@ $type-size-8                : 0.625em;  // ~10px
 $masthead-height            : 70px;
 
 /* Sidebar properties */
-$sidebar-screen-min-width   : 1024px;
+// Must match $large below: the sidebar's position:fixed treatment must not
+// activate before .page gets its span(10 of 12 last) column, or the fixed
+// sidebar overlaps the (still full-width) content column.
+$sidebar-screen-min-width   : 1100px;
 $sidebar-link-max-width     : 250px;
 
 
@@ -129,7 +132,7 @@ $x-large                    : 1800px;
 $small                      : 600px !default;
 $medium                     : 768px !default;
 $medium-wide                : 900px !default;
-$large                      : 925px !default;
+$large                      : 1100px !default;
 $x-large                    : 1280px !default;
 
 /*
