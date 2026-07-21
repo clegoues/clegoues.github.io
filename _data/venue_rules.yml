@@ -125,6 +125,7 @@ journal_map:
   "Trans Auton Adapt Syst": "TAAS"
   "Autonomous Agents and Multi-Agent Systems": "AAMAS"
   "Genetic Programming and Evolvable Machines": "GPEM"
+  "CoRR": "arXiv"
 
 conference_map:
   # ".ISSTA" / ".FSE" catch the lab's `Proc ACM Softw Eng 2 ISSTA` dialect
