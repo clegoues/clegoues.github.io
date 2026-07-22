@@ -196,3 +196,64 @@ short_track_map:
   "Poster": "Poster"
   "Companion": "Companion"
   "Late-Breaking": "Late-Breaking"
+
+# ============================================================================
+# Venue-month fallback (for date sorting)
+# ============================================================================
+# When an entry has no `month` field and Crossref yields no month for its DOI,
+# bin/sync_publications.py falls back to this table to best-guess a month from
+# the venue. Maps a booktitle/journal substring (same whitespace- and
+# punctuation-tolerant matching as the abbrv tables) to a month NUMBER (1-12).
+# First-match-wins; put more-specific phrases first. Values are the month the
+# conference/edition typically occurs.
+#
+# Journals rarely carry a meaningful single month; they fall through to the
+# sentinel (sorts last within the year) unless listed here.
+venue_month_map:
+  # Software engineering conferences
+  "International Conference on Software Engineering": 5   # ICSE ~ May
+  "Symposium on Software Testing and Analysis": 7         # ISSTA ~ July
+  "European Software Engineering Conference": 11          # ESEC/FSE ~ Nov
+  "Foundations of Software Engineering": 11               # FSE ~ Nov
+  "Automated Software Engineering": 10                    # ASE ~ Oct/Nov
+  "Software Analysis Evolution and Reengineering": 3      # SANER ~ March
+  "Software Maintenance and Evolution": 9                 # ICSME ~ Sept/Oct
+  "Software Reliability Engineering": 10                  # ISSRE ~ Oct
+  "Dependable Systems and Networks": 6                    # DSN ~ June
+  "Software Testing Verification": 4                      # ICST ~ April
+  "Software Testing": 4                                   # ICST ~ April
+  "Program Comprehension": 5                              # ICPC ~ May
+  "Mining Software Repositories": 5                       # MSR ~ May (co-loc ICSE)
+  "Software Architecture": 3                              # ICSA ~ March
+  "Software Engineering and Formal Methods": 9            # SEFM ~ Sept
+  "Formal Methods and Models for System Design": 9        # MEMOCODE ~ Sept
+  "Software Engineering for Adaptive and Self-Managing Systems": 5  # SEAMS ~ May (co-loc ICSE)
+  "Self-Adaptive and Self-Managing Systems": 5
+  "Self-Organizing Systems": 9                            # ACSOS ~ Sept
+  "Autonomic Computing and Self-Organizing": 9            # ACSOS ~ Sept
+  # Security
+  "USENIX Security": 8                                    # ~ August
+  "Network and Distributed System Security": 2            # NDSS ~ Feb
+  "Computer Security Applications": 12                    # ACSAC ~ Dec
+  "Detection of Intrusions and Malware": 7                # DIMVA ~ July
+  # PL / systems
+  "Programming Language Design and Implementation": 6     # PLDI ~ June
+  "Compiler Construction": 3                              # CC ~ March
+  "Architectural Support for Programming Languages and Operating Systems": 3  # ASPLOS ~ March/April
+  "Summit on Advances in Programming Languages": 5        # SNAPL ~ May
+  # Seminars / reports (before GI: a Dagstuhl GI report should read as Dagstuhl)
+  "Dagstuhl": 2                                           # Dagstuhl seminars, best-guess
+  # Evolutionary computation
+  "Genetic and Evolutionary Computation": 7               # GECCO ~ July
+  "Genetic Improvement": 5                                # GI workshop ~ co-loc ICSE/GECCO
+  "Search Based Software Engineering": 9                  # SSBSE ~ Sept
+  "Search-Based Software Engineering": 8                  # SSBSE 2014 proceedings (Aug)
+  # Robotics
+  "Robotics and Automation": 5                            # ICRA ~ May
+  # AI
+  "AAAI": 2                                               # AAAI ~ Feb
+  # Workshops without a DOI-resolvable date (best-guess from typical host)
+  "Deep Learning for Code": 5                             # DL4C ~ co-loc ICLR (spring)
+  "Fuzzing Workshop": 7                                   # co-loc ISSTA (July)
+  "International Fuzzing Workshop": 7
+  # Tutorials / theses / registered venues without a clear month fall through.

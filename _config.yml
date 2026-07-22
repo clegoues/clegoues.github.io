@@ -243,10 +243,10 @@ defaults:
 scholar:
  csl: /assets/bib.csl
  bibliography_template: bib_template
- bibtex_skip_fields: [code, data, tool, pdf, slides, poster, abbrv, month, month_numeric, acceptance, pubcls, pubtype] 
+ bibtex_skip_fields: [code, data, tool, pdf, slides, poster, abbrv, month, month_numeric, acceptance, pubcls, pubtype]
  repository: /assets/papers
- sort_by: year
- order: descending,ascending
+ sort_by: year, month_numeric
+ order: descending, ascending
 
 
 # Sass/SCSS
