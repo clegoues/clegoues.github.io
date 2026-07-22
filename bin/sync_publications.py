@@ -26,6 +26,7 @@ import os
 import re
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -47,6 +48,13 @@ PAPERS_DIR = Path("assets/papers")
 VENUE_RULES = Path("_data/venue_rules.yml")
 OVERRIDES_FILE = Path("_data/personal_overrides.yml")
 SKIP_FILE = Path("_data/personal_skip.yml")
+
+# On-disk cache of Crossref DOI -> month lookups so repeat syncs (and CI runs)
+# don't re-hit the API. Committed to the repo. Maps doi -> month int or null
+# (null records a confirmed "Crossref has no month for this DOI" so we don't
+# re-query it every run).
+CROSSREF_CACHE = Path("bin/.crossref_cache.json")
+CROSSREF_URL = "https://api.crossref.org/works/{doi}"
 
 AUTHOR_MATCH = ["le goues", "le~goues", "le-goues"]
 
@@ -306,6 +314,123 @@ def apply_venue_rules(entry_type, fields, rules_data):
     return {}
 
 
+# --- Month inference (for date sorting) ------------------------------------
+
+# Map month names / bibtex abbreviations -> number. Keys are lowercased and
+# only the first three letters are ever compared, so "may", "may.", "May"
+# all resolve.
+_MONTH_ABBR = {
+    "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+    "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12,
+}
+
+
+def parse_month_field(raw):
+    """Parse an existing bibtex `month` value into a month number, or None.
+
+    Handles full names ("May"), bibtex abbreviations ("sep", "oct"), bare
+    numbers ("5", "05"), and ranges/compounds ("June-July", "May 2018") by
+    taking the first recognizable token.
+    """
+    if not raw:
+        return None
+    s = _flat(raw)  # lowercases, strips braces/punctuation
+    # Bare number anywhere (e.g. "month = {5}").
+    m = re.search(r"\b(1[0-2]|0?[1-9])\b", s)
+    numeric = int(m.group(1)) if m else None
+    # Name/abbrev: first token whose first 3 letters match.
+    for tok in s.split():
+        key = tok[:3]
+        if key in _MONTH_ABBR:
+            return _MONTH_ABBR[key]
+    return numeric
+
+
+def load_crossref_cache():
+    if CROSSREF_CACHE.exists():
+        try:
+            return json.loads(CROSSREF_CACHE.read_text())
+        except (json.JSONDecodeError, OSError):
+            return {}
+    return {}
+
+
+def save_crossref_cache(cache):
+    CROSSREF_CACHE.parent.mkdir(parents=True, exist_ok=True)
+    # Sorted keys for a stable, review-friendly diff.
+    CROSSREF_CACHE.write_text(json.dumps(cache, indent=2, sort_keys=True) + "\n")
+
+
+def crossref_month(doi, cache):
+    """Return a month number (1-12) for `doi` via Crossref, or None.
+
+    Scans published-print / published-online / issued and returns the first
+    date-parts entry that carries a month. Results (including confirmed
+    "no month") are memoized in `cache`, keyed by the lowercased DOI.
+    """
+    if not doi:
+        return None
+    key = doi.strip().lower()
+    if key in cache:
+        return cache[key]
+
+    month = None
+    try:
+        raw = http_get(CROSSREF_URL.format(doi=urllib.parse.quote(key)))
+        msg = json.loads(raw).get("message", {})
+        for field in ("published-print", "published-online", "issued", "published"):
+            parts = msg.get(field, {}).get("date-parts") or []
+            if parts and len(parts[0]) >= 2:
+                candidate = parts[0][1]
+                if isinstance(candidate, int) and 1 <= candidate <= 12:
+                    month = candidate
+                    break
+    except (urllib.error.URLError, urllib.error.HTTPError, json.JSONDecodeError,
+            ValueError, KeyError) as e:
+        print(f"    crossref lookup failed for {doi}: {e}", file=sys.stderr)
+
+    cache[key] = month
+    return month
+
+
+def infer_month(fields, rules_data, cache):
+    """Return an inferred month NUMBER (1-12) for an entry, or None.
+
+    Used to backfill the `month` field when a lab entry lacks one, so that
+    jekyll-scholar's computed `month_numeric` (derived from `month`) has a
+    value to sort on. We do NOT write a separate `month_numeric` field:
+    BibTeX-ruby computes that accessor from `month` and ignores any literal
+    `month_numeric` field, so the real lever is `month` itself.
+
+    Precedence:
+      1. existing `month` field on the entry (nothing to do; return None)
+      2. Crossref lookup by DOI
+      3. venue_month_map fallback (best-guess from venue)
+
+    Truly-unknown entries return None; the sync leaves `month` unset and they
+    sort to the top of their year (empty sorts before any real month).
+    """
+    if parse_month_field(fields.get("month")) is not None:
+        return None  # already has a usable month; leave it alone
+
+    m = crossref_month(fields.get("doi", ""), cache)
+    if m is None:
+        # For the month fallback we also consult `title`, because @proceedings
+        # / edited-volume entries carry the venue name in the title rather than
+        # booktitle/journal. We deliberately do NOT widen the abbrv haystack
+        # this way, to avoid disturbing established abbrv inference.
+        haystack = _haystack(fields)
+        title_hay = _flat(fields.get("title", ""))
+        combined = (haystack + " " + title_hay).strip()
+        val = _lookup_abbrv(combined, rules_data.get("venue_month_map", {}))
+        if val is not None:
+            try:
+                m = int(val)
+            except (TypeError, ValueError):
+                m = None
+    return m
+
+
 # --- PDF download helpers --------------------------------------------------
 
 def md5_of(path):
@@ -429,6 +554,7 @@ def main():
     overrides_data = load_yaml(OVERRIDES_FILE)
     skip_data = load_yaml(SKIP_FILE)
     skip_keys = set((skip_data or {}).get("skip", []) or [])
+    crossref_cache = load_crossref_cache()
 
     print(f"loaded rules:    {VENUE_RULES} ({len(rules_data.get('rules', []))} rules)", file=sys.stderr)
     print(f"loaded overrides:{OVERRIDES_FILE} ({len(overrides_data or {})} keys)", file=sys.stderr)
@@ -488,6 +614,14 @@ def main():
                 else:
                     kept[ofield] = oval if isinstance(oval, str) else str(oval)
 
+        # Backfill `month` when the lab entry lacks one, so jekyll-scholar can
+        # sort by date. An override that sets `month` explicitly wins (we only
+        # fill when absent).
+        if not kept.get("month"):
+            inferred = infer_month(kept, rules_data, crossref_cache)
+            if inferred is not None:
+                kept["month"] = str(inferred)
+
         # Download materials if present.
         if key in materials_index:
             file_fields = download_materials(key, materials_index[key], PAPERS_DIR)
@@ -499,15 +633,26 @@ def main():
 
         synced_entries.append((entry_type, key, kept, raw_order))
 
-    # Sort: year desc, then key.
+    # Sort: year desc, then month asc, then key. This is only the order the
+    # entries are written into the bib file; the rendered order on the site is
+    # governed by jekyll-scholar's sort_by in _config.yml. We keep the two in
+    # agreement so the source file reads the way the page renders.
     def sort_key(entry):
         et, key, fields, _ = entry
         try:
             yr = int(fields.get("year", "0"))
         except ValueError:
             yr = 0
-        return (-yr, key)
+        # Empty/unknown month sorts first within its year, matching how
+        # jekyll-scholar orders empty month_numeric ascending.
+        mo = parse_month_field(fields.get("month"))
+        if mo is None:
+            mo = 0
+        return (-yr, mo, key)
     synced_entries.sort(key=sort_key)
+
+    # Persist the Crossref cache (new lookups this run get memoized).
+    save_crossref_cache(crossref_cache)
 
     # Serialize.
     body = "\n\n".join(
