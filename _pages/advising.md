@@ -25,19 +25,24 @@ Mention (and substantiate/justify!) your interest in my work to ensure that I
 see your application. Note that the SE PhD program does not look at GRE scores
 and does not have an application fee; see our website for details.
 
-I discourage prospective PhD students from emailing me outside of application
-season about their plans to apply; I'll simply repeat the above. 
+If you are a prospective PhD student and we do not have a preexisting
+professional or personal association, please do not email me regarding your
+desire to apply; LLMs have caused the volume of such emails to explode and I
+simply no longer can individually triage them.  Please just apply to the
+relevant PhD program, as above. 
 
-*Non-CMU PhD students interested in visiting:* please contact me directly. Note
-that your chances will be much better if you secure an outside fellowship to
-support your visit, and even better than that if your research advisor emails me
-as well.
+*Non-CMU PhD students interested in visiting:* please contact me directly,
+though note as above that the volume of emails we're all getting now has made it
+easy for inquiries to get lost. Your chances will be improved if you are able to
+have your research advisor or some other professional connection email me as
+well. 
 
 **Masters students:** The [Masters of Software Engineering](https://mse.isri.cmu.edu/) is an
 industry/practitioner-oriented (rather than a research-oriented) degree. I do
 not participate in the MSE admissions process. If you’d like to do research with
-me, apply to our PhD program instead. If you are a current MSE student who has
-developed an interest in research, contact me as noted above.
+me, apply to our PhD program instead. If you are a current MSE student (or a
+Masters student in any other CMU program) who has developed an interest in
+research, contact me as noted above.
 
 **Undergraduate summer research:**  With [Josh
 Sunshine](http://www.cs.cmu.edu/~jssunshi/) and [Charlie

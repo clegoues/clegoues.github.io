@@ -23,4 +23,6 @@ Students or potential students interested in working with me can learn more [her
 
 If you would like to meet with me, your best bet is to email me while CCing Jennifer Cooper (cooperj@andrew.cmu.edu).  If you want to propose some times (always helpful!), [my calendar is available](/calendar.html).
 
-**Relevant trivia:** My last name is pronounced “Le-Gwess.”
+**Important note:** I am unable to reply to cold inquiries (regarding meeting or otherwise) from prospective PhD student applicants. I'm sorry; I used to be able to, but LLMs have caused the volume of such emails to explode. Please [follow my advice for applying to a relevant CMU PhD program](/advising.html).
+
+**Useful trivia:** My last name is pronounced “Le-Gwess.”
